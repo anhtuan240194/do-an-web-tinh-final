@@ -1,0 +1,29 @@
+{
+    "name": "jsonserver-onrender",
+    "version": "1.0.0",
+    "description": "Deploy jsonserver to render.com",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon --watch src --watch public -e html,css,js,mjs,json server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "jsonserver",
+        "nodejs",
+        "render"
+    ],
+    "homepage": "https://github.com/banx9x/jsonserver-onrender#readme",
+    "bugs": {
+        "url": "https://github.com/banx9x/jsonserver-onrender/issues",
+        "email": "banx9x@gmail.com"
+    },
+    "author": "Ba Nguyễn <banx9x@gmail.com> (https://banx9x.dev/)",
+    "license": "ISC",
+    "dependencies": {
+        "json-server": "^0.17.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}
