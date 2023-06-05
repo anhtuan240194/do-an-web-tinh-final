@@ -31,7 +31,203 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3 d-block d-lg-none d-xl-none d-sm-none d-md-none">
-                        <img class="menu_mb_button" src="image/menu.svg" alt="Tuli design" />
+                        <nav class="navbar_mobile">
+                            <button class="navbar-button" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                                aria-label="Toggle navigation">
+                                <img class="menu_mb_button" src="image/menu.svg" alt="Tuli design" />
+                            </button>
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                                aria-labelledby="offcanvasNavbarLabel">
+                                <div class="offcanvas-header">
+                                    <div class="offcanvas-title" id="offcanvasNavbarLabel">
+                                        <div class="nav_account gap-3 d-flex">
+                                            <img src="image/profile.svg" alt="Tài khoản">
+                                            <div class="account_info">
+                                                <a class="d-block" href="login.html">Đăng nhập</a>
+                                                <a class="d-block" href="register.html">Đăng ký</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="navbar_mobile_body">
+                                    <ul class="nav_list p-3">
+                                        <li class="nav_item">
+                                            <a href="/index.html">Trang chủ</a>
+                                        </li>
+                                        <li class="nav_item">
+                                            <a href="/collection.html">Khuyến mãi sốc</a>
+                                        </li>
+                                        <li class="nav_item">
+                                            <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Sản
+                                                phẩm
+                                                <span class="collapse-plus position-absolute">+</span>
+                                                <span class="collapse-reduce d-none position-absolute">-</span>
+                                            </a>
+                                            <ul class="nav_list_lv0 d-none">
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a class="dropdown_nav_lv1 position-relative"
+                                                        href="/collection.html">Đầm thiết kế
+                                                        <span class="collapse-plus position-absolute">+</span>
+                                                        <span class="collapse-reduce d-none position-absolute">-</span>
+                                                    </a>
+                                                    <ul class="nav_list_lv1 d-none">
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Mẫu
+                                                                đầm mới nhất</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đầm
+                                                                dự tiệc</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đầm
+                                                                cô dâu chạy bàn</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đầm
+                                                                mùa hè</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đầm
+                                                                mùa đông</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a class="dropdown_nav_lv1 position-relative"
+                                                        href="/collection.html">Vest
+                                                        <span class="collapse-plus position-absolute">+</span>
+                                                        <span
+                                                            class="collapse-reduce d-none position-absolute">-</span></a>
+                                                    <ul class="nav_list_lv1 d-none">
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Mẫu
+                                                                vest mới nhất</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a
+                                                                href="/collection.html">Vest mùa hè</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a
+                                                                href="/collection.html">Vest mùa đông</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a class="dropdown_nav_lv1 position-relative"
+                                                        href="/collection.html">Áo
+                                                        <span class="collapse-plus position-absolute">+</span>
+                                                        <span
+                                                            class="collapse-reduce d-none position-absolute">-</span></a>
+                                                    <ul class="nav_list_lv1 d-none">
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Mẫu
+                                                                áo mới nhất</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Áo
+                                                                sơ mi</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Áo
+                                                                phông</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Áo
+                                                                thun - Polo</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a class="dropdown_nav_lv1 position-relative"
+                                                        href="/collection.html">Quần
+                                                        <span class="collapse-plus position-absolute">+</span>
+                                                        <span class="collapse-reduce d-none position-absolute">-</span>
+                                                    </a>
+                                                    <ul class="nav_list_lv1 d-none">
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Mẫu
+                                                                quần mới nhất</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a
+                                                                href="/collection.html">Quần vải</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a
+                                                                href="/collection.html">Quần jean</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a
+                                                                href="/collection.html">Quần short</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a
+                                                                href="/collection.html">Quần dài</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a class="dropdown_nav_lv1 position-relative"
+                                                        href="/collection.html">Đồ ngủ
+                                                        <span class="collapse-plus position-absolute">+</span>
+                                                        <span class="collapse-reduce d-none position-absolute">-</span>
+                                                    </a>
+                                                    <ul class="nav_list_lv1 d-none">
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Mẫu
+                                                                đồ ngủ mới nhất</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Bộ
+                                                                ngủ mặc nhà</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đồ
+                                                                ngủ sexy</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đồ
+                                                                ngủ cosplay</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đồ
+                                                                ngủ cute</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a class="dropdown_nav_lv1 position-relative"
+                                                        href="/collection.html">Đồ lót
+                                                        <span class="collapse-plus position-absolute">+</span>
+                                                        <span class="collapse-reduce d-none position-absolute">-</span>
+                                                    </a>
+                                                    <ul class="nav_list_lv1 d-none">
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Mẫu
+                                                                đồ lót mới nhất</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Áo
+                                                                ngực</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a
+                                                                href="/collection.html">Quần lót</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Set
+                                                                đồ lót</a></li>
+                                                        <li class="nav_item nav_item_lv1"><a href="/collection.html">Đồ
+                                                                lót cute</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav_item">
+                                            <a class="dropdown_nav_lv0 position-relative" href="/"
+                                                onclick="event.preventDefault()">Chính sách
+                                                <span class=" collapse-plus position-absolute">+</span>
+                                                <span class="collapse-reduce d-none position-absolute">-</span>
+                                            </a>
+                                            <ul class="nav_list_lv0 d-none">
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a href="/collection.html">Chính sách mua sỉ</a>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a href="/collection.html">Chính sách đổi trả</a>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a href="/collection.html">Chính sách thanh toán</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav_item">
+                                            <a class="dropdown_nav_lv0 position-relative"
+                                                href="javascript:void(0)">Hướng dẫn
+                                                <span class="collapse-plus position-absolute">+</span>
+                                                <span class="collapse-reduce d-none position-absolute">-</span>
+                                            </a>
+                                            <ul class="nav_list_lv0 d-none">
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a href="/collection.html">Hướng dẫn đăng ký sỉ</a>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a href="/collection.html">Hướng dẫn mua hàng</a>
+                                                </li>
+                                                <li class="nav_item nav_item_lv0">
+                                                    <a href="/collection.html">Hướng dẫn thanh toán</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav_item">
+                                            <a href="/pagecontact.html">Liên hệ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="navbar_mobile_support d-flex">
+                                    <a href="tel:0363794451" class="support_hotline text-center p-2">
+                                        Gọi điện <img src="image/call-center.svg" alt="Gọi điện">
+                                    </a>
+                                    <a href="https://zalo.me/0363794451" class="support_messenger text-center p-2">
+                                        Nhắn tin <img src="image/bubble-chat.svg" alt="Nhắn tin">
+                                    </a>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                     <div class="col-lg-2 col-md-2 col-6">
                         <div class="logo">
@@ -43,7 +239,7 @@
                             <nav>
                                 <ul class="menu_list ps-0">
                                     <li class="lv0"><a href="#">Trang chủ</a></li>
-                                    <li class="lv0"><a href="">Khuyến mãi sốc</a></li>
+                                    <li class="lv0"><a href="/">Khuyến mãi sốc</a></li>
                                     <li class="lv0 lv_mega">
                                         <a href="/collection.html">Sản phẩm</a>
                                         <ul class="header_menu_sub mega_menu position-absolute">
@@ -109,26 +305,25 @@
                                         </ul>
                                     </li>
                                     <li class="lv0">
-                                        <a href="">Chính sách</a>
+                                        <a href="javascript:void(0)">Chính sách</a>
                                         <ul class="header_menu_sub">
-                                            <li class="lv1"><a href="">Chính sách mua sỉ</a></li>
-                                            <li class="lv1"><a href="">Chính sách đổi trả</a></li>
-                                            <li class="lv1">
-                                                <a href="">Chính sách thanh toán</a>
+                                            <li class="lv1"><a href="/serviceloyalty.html">Chính sách mua sỉ</a></li>
+                                            <li class="lv1"><a href="/servicereturn.html">Chính sách đổi trả</a></li>
+                                            <li class="lv1"><a href="/servicepayment.html">Chính sách thanh toán</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="lv0">
-                                        <a href="">Hướng dẫn</a>
+                                        <a href="javascript:void(0)">Hướng dẫn</a>
                                         <ul class="header_menu_sub">
-                                            <li class="lv1"><a href="">Hướng dẫn đăng ký sỉ</a></li>
-                                            <li class="lv1"><a href="">Hướng dẫn mua hàng</a></li>
+                                            <li class="lv1"><a href="/pageagent.html">Hướng dẫn đăng ký sỉ</a></li>
+                                            <li class="lv1"><a href="/shoppingguide.html">Hướng dẫn mua hàng</a></li>
                                             <li class="lv1">
-                                                <a href="">Phương thức thanh toán</a>
+                                                <a href="/methodpayment.html">Phương thức thanh toán</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="lv0"><a href="">Liên hệ</a></li>
+                                    <li class="lv0"><a href="/contact.html">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -164,7 +359,6 @@
                                         <img src="https://bizweb.dktcdn.net/thumb/large/100/448/042/products/load-8cec1ff06074466ab54947cb44ef3a5e-2920de0042754f4986a073a04fcc005e-b32adde8714d4409b3a027bcc93c59fd.jpg?v=1658372597810"
                                             alt="" />
                                     </div>
-
                                     <div class="cart_item_info ps-2">
                                         <a href="#" class="cart_item_name mb-1 d-block">Đầm body Tuli design tay lửng
                                             chất tuyết mưa</a>
@@ -189,7 +383,6 @@
                                         <img src="https://bizweb.dktcdn.net/thumb/large/100/448/042/products/load-8cec1ff06074466ab54947cb44ef3a5e-2920de0042754f4986a073a04fcc005e-b32adde8714d4409b3a027bcc93c59fd.jpg?v=1658372597810"
                                             alt="" />
                                     </div>
-
                                     <div class="cart_item_info ps-2">
                                         <a href="#" class="cart_item_name mb-1 d-block">Đầm body Tuli design tay lửng
                                             chất tuyết mưa</a>
@@ -270,7 +463,20 @@
             <div class="modal_search position-absolute d-block"></div>
         </div>
     </header>
-    <div class="page_content"></div>
+    <div class="breadcrums d-flex align-items-center mb-4">
+        <div class="container">
+            <li>
+                <a href="/"><img src="image/home.svg" alt="Trang chủ" /> Trang chủ</a>
+                <span>/</span>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Chính sách thanh toán</a>
+            </li>
+        </div>
+    </div>
+    <div class="main_page">
+
+    </div>
     <!--Footer-->
     <footer>
         <div class="container">
@@ -298,10 +504,10 @@
                 <div class="col-12 col-lg-3 col-md-3 col-sm-6">
                     <h4 class="title_footer">DỊCH VỤ KHÁCH HÀNG</h4>
                     <ul class="list_footer">
-                        <li><a>Chính sách đổi trả</a></li>
-                        <li><a>Chính sách thanh toán</a></li>
-                        <li><a>Chính sách mua sỉ</a></li>
-                        <li><a>Chính sách vận chuyển</a></li>
+                        <li><a href="/servicereturn.html">Chính sách đổi trả</a></li>
+                        <li><a href="/servicepayment.html">Chính sách thanh toán</a></li>
+                        <li><a href="/serviceloyalty.html">Chính sách mua sỉ</a></li>
+                        <li><a href="/servicereturn.html">Chính sách vận chuyển</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-3 col-md-3 col-sm-6">
@@ -312,8 +518,8 @@
                     </div>
                     <ul class="list_social">
                         <li>
-                            <a target="blank" href="https://www.facebook.com/tuli.design.bn/"><img src="image/facebook.svg"
-                                    alt="Facebook" /></a>
+                            <a target="blank" href="https://www.facebook.com/tuli.design.bn/"><img
+                                    src="image/facebook.svg" alt="Facebook" /></a>
                         </li>
                         <li>
                             <a target="blank"><img src="image/instagram.svg" alt="Instagram" /></a>
@@ -339,6 +545,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
-    </body>
-    
-    </html>
+</body>
+
+</html>

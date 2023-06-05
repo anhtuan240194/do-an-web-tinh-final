@@ -34,3 +34,47 @@
 .cart_item {
   background: #fff;
 }
+
+.product_voucher {
+    border: 1px dashed var(--main-color);
+}
+.product_voucher_title img {
+    width: 16px;
+}
+.product_voucher_title {
+    background: #c7e4ff;
+    border: 1px solid var(--main-color);
+    border-radius:20px;
+    top: -15px;
+    padding: 1px 10px;
+    left:20px;
+}
+.product_voucher_title span {
+  vertical-align: middle;
+  color: var(--main-color);
+}
+.item_voucher span {
+    font-size: 0.9rem;
+}
+.voucher_copy {
+  background:var(--main-color);
+  border-radius:20px;
+  cursor:pointer;
+  color:#fff;
+  padding:2px 10px;
+}
+.voucher_copy:hover {
+  background:var(--second-color);
+}
+@media(min-width:1200px) {
+  .swiper_voucher {
+    height:100px;
+  }
+  .product_voucher .swiper-pagination {
+    bottom: -5px;
+  }
+}
+.total_cart {
+    background: var(--main-color);
+    color: #fff;
+}

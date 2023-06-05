@@ -249,7 +249,7 @@
     border: none;
   }
   .item_voucher:not(:last-child) {
-    border-bottom: 1px dashed var(--second-color);
+    border-bottom: 1px dashed var(--main-color);
   }
   .swiper_voucher {
     height:390px;
