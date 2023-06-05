@@ -53,3 +53,16 @@ $(document).ready(function () {
     $(this).closest(".cart_right_item").remove();
   });
 });
+
+  //Show menu
+  $(".dropdown_nav_lv0").on("click", function(){
+    $(this).siblings(".nav_list_lv0").toggleClass("d-none");
+    $(this).children("span").toggleClass("d-none");
+    $(this).toggleClass("fw-bold");
+  });
+  $(".dropdown_nav_lv1 span").on("click", function (event) {
+    event.preventDefault();
+    $(this).toggleClass("d-none");
+    $(this).siblings("span").toggleClass("d-none");
+    $(this).parent().siblings(".nav_list_lv1").toggleClass("d-none");
+  });

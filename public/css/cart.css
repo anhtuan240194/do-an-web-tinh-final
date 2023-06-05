@@ -1,0 +1,36 @@
+:root {
+  --main-color: #0058a8;
+  --text-color: #11006f;
+  --second-color: #de616b;
+}
+.title_page.mb-3 {
+  font-size: 1.25rem;
+}
+.main_cart {
+  background: #f0f8ff;
+}
+.cart_item img {
+  width: auto;
+  height: 100px;
+}
+.cart_item_nameproduct {
+  font-size: 1rem;
+}
+.cart_item_variant {
+  font-size: 0.8rem;
+}
+.cart_item_infor {
+  width: 78%;
+}
+.cart_item_price {
+  color: #de616b;
+  font-size: 1rem;
+}
+.cart_item_remove {
+  border: 1px solid var(--main-color);
+  font-size: 0.8rem;
+  padding: 2px 15px;
+}
+.cart_item {
+  background: #fff;
+}

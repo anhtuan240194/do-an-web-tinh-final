@@ -1,46 +1,379 @@
 {
-  "todos": [
+  "products": [
     {
-      "title": "LoL",
-      "completed": true,
-      "updatedAt": "Fri, 02 Jun 2023 11:20:09 GMT",
-      "id": 1
+      "id": 1,
+      "name": "Áo polo dáng A nhăn, váy suông không cổ QA24",
+      "price": 250000,
+      "oldprice": 300000,
+      "quantity": 200,
+      "sold": 68,
+      "collections": ["Áo", "Quần", "Flash sale"],
+      "image": [
+        "/image/productimage/1.jpg",
+        "/image/productimage/1-2.jpg",
+        "/image/productimage/1-3.jpg",
+        "/image/productimage/1-4.jpg"
+      ]
     },
     {
-      "title": "dfsf",
-      "completed": true,
-      "updatedAt": "Fri, 02 Jun 2023 11:20:09 GMT",
-      "id": 2
+      "id": 2,
+      "name": "Đầm suông xòe tơ 3D hoa nhí xanh dáng dài cổ sen bèo, đính cúc gỗ",
+      "price": 220000,
+      "oldprice": 250000,
+      "quantity": 200,
+      "sold": 128,
+      "collections": ["Áo", "Đầm thiết kế", "Flash sale"],
+      "image": [
+        "/image/productimage/2.jpg",
+        "/image/productimage/2-2.jpg",
+        "/image/productimage/2-3.jpg",
+        "/image/productimage/2-4.jpg"
+      ]
     },
     {
-      "title": "sdfds",
-      "completed": true,
-      "updatedAt": "Fri, 02 Jun 2023 11:20:08 GMT",
-      "id": 3
+      "id": 3,
+      "name": "Váy tiểu thư dáng ngắn cổ sen phối viền đen lớp cúc giả có sẵn lớp lót quần HN02",
+      "price": 180000,
+      "oldprice": 200000,
+      "quantity": 200,
+      "sold": 46,
+      "collections": [
+        "Đầm thiết kế",
+        "Mẫu đầm mới nhất",
+        "Hàng mới về",
+        "Flash sale"
+      ],
+      "image": [
+        "/image/productimage/3.jpg",
+        "/image/productimage/3-2.jpg",
+        "/image/productimage/3-3.jpg",
+        "/image/productimage/3-4.jpg"
+      ]
     },
     {
-      "title": "dsfsdf",
-      "completed": true,
-      "updatedAt": "Fri, 02 Jun 2023 11:20:07 GMT",
-      "id": 4
+      "id": 4,
+      "name": "Váy 2 dây dáng dài màu đỏ Sweet Girl, váy thiết kế dự tiệc V81",
+      "price": 260000,
+      "oldprice": 300000,
+      "quantity": 200,
+      "sold": 120,
+      "collections": [
+        "Đầm thiết kế",
+        "Mẫu đầm mới nhất",
+        "Hàng mới về",
+        "Flash sale"
+      ],
+      "image": [
+        "/image/productimage/4.jpg",
+        "/image/productimage/4-2.jpg",
+        "/image/productimage/4-3.jpg",
+        "/image/productimage/4-4.jpg"
+      ]
     },
     {
-      "title": "sdfdf",
-      "completed": true,
-      "updatedAt": "Fri, 02 Jun 2023 11:20:06 GMT",
-      "id": 5
+      "id": 5,
+      "name": "[Mua 1 tặng 1] Đầm maxi voan, váy voan nhũ dáng baby doll tặng kèm váy 2 dây lót D188",
+      "price": 260000,
+      "oldprice": 320000,
+      "quantity": 200,
+      "sold": 120,
+      "collections": [
+        "Đầm thiết kế",
+        "Mẫu đầm mới nhất",
+        "Hàng mới về",
+        "Flash sale"
+      ],
+      "image": [
+        "/image/productimage/5.jpg",
+        "/image/productimage/5-1.jpg",
+        "/image/productimage/5-2.jpg",
+        "/image/productimage/5-3.jpg",
+        "/image/productimage/5-4.jpg",
+        "/image/productimage/5-5.jpg",
+        "/image/productimage/5-6.jpg"
+      ]
     },
     {
-      "title": "fsdf",
-      "completed": true,
-      "updatedAt": "Fri, 02 Jun 2023 11:20:04 GMT",
-      "id": 6
+      "id": 6,
+      "name": "Set sooc yếm dạ nhũ đỏ kèm sơ mi tay bèo loại 1",
+      "price": 200000,
+      "oldprice": 300000,
+      "quantity": 200,
+      "sold": 100,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Hàng mới về"],
+      "image": [
+        "/image/productimage/6.jpg",
+        "/image/productimage/6-2.jpg",
+        "/image/productimage/6-3.jpg",
+        "/image/productimage/6-4.jpg",
+        "/image/productimage/6-5.jpg"
+      ]
     },
     {
-      "title": "dsf",
-      "completed": true,
-      "updatedAt": "Fri, 02 Jun 2023 11:19:51 GMT",
-      "id": 7
+      "id": 7,
+      "name": "Set thô nến áo cộc tay cổ bèo viền hạt mix chân váy A",
+      "price": 150000,
+      "oldprice": 200000,
+      "quantity": 200,
+      "sold": 160,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Hàng mới về"],
+      "image": [
+        "/image/productimage/7.jpg",
+        "/image/productimage/7-2.jpg",
+        "/image/productimage/7-3.jpg",
+        "/image/productimage/7-4.jpg",
+        "/image/productimage/7-5.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Váy tiểu thư dáng ngắn cổ sen phối viền đen lớp cúc giả có sẵn lớp lót quần HN02",
+      "price": 160000,
+      "oldprice": 200000,
+      "quantity": 200,
+      "sold": 80,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Hàng mới về"],
+      "image": [
+        "/image/productimage/8.jpg",
+        "/image/productimage/8-2.jpg",
+        "/image/productimage/8-3.jpg",
+        "/image/productimage/8-4.jpg",
+        "/image/productimage/8-5.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Set tơ óng 3 món áo sơ mi, áo 2 dây, chân váy trơn basic dáng xuông xòe dài",
+      "price": 100000,
+      "oldprice": 150000,
+      "quantity": 200,
+      "sold": 110,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Thời trang hè"],
+      "image": [
+        "/image/productimage/9.jpg",
+        "/image/productimage/9-2.jpg",
+        "/image/productimage/9-3.jpg",
+        "/image/productimage/9-4.jpg",
+        "/image/productimage/9-5.jpg",
+        "/image/productimage/9-6.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Set áo chân váy - áo cộc đen đính cúc và chân váy tơ trắng - HN15",
+      "price": 150000,
+      "oldprice": 175000,
+      "quantity": 200,
+      "sold": 80,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Thời trang hè"],
+      "image": [
+        "/image/productimage/10.jpg",
+        "/image/productimage/10-2.jpg",
+        "/image/productimage/10-3.jpg",
+        "/image/productimage/10-4.jpg",
+        "/image/productimage/10-5.jpg"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Set thô nến áo cộc tay cổ bèo viền hạt mix chân váy A",
+      "price": 200000,
+      "oldprice": 220000,
+      "quantity": 200,
+      "sold": 140,
+      "collections": ["Áo", "Mẫu áo mới nhất", "Thời trang hè"],
+      "image": [
+        "/image/productimage/11.jpg",
+        "/image/productimage/11-2.jpg",
+        "/image/productimage/11-3.jpg",
+        "/image/productimage/11-4.jpg",
+        "/image/productimage/11-5.jpg"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Chân váy đuôi cá jean cạp cao dáng dài màu xanh trơn basic",
+      "price": 120000,
+      "oldprice": 160000,
+      "quantity": 200,
+      "sold": 120,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Thời trang hè"],
+      "image": [
+        "/image/productimage/12.jpg",
+        "/image/productimage/12-2.jpg",
+        "/image/productimage/12-3.jpg",
+        "/image/productimage/12-4.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Váy kẻ caro dáng ngắn thiết kế có cổ vạt dáng xòe nhẹ xếp li đuôi cá",
+      "price": 240000,
+      "oldprice": 300000,
+      "quantity": 200,
+      "sold": 145,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Hàng mới về"],
+      "image": [
+        "/image/productimage/13.jpg",
+        "/image/productimage/13-2.jpg",
+        "/image/productimage/13-3.jpg",
+        "/image/productimage/13-4.jpg"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Áo dài cách tân tafta phối ren nơ siêu tôn dáng",
+      "price": 220000,
+      "oldprice": 260000,
+      "quantity": 200,
+      "sold": 125,
+      "collections": [
+        "Thời trang hè",
+        "Mẫu áo mới nhất",
+        "Áo",
+        "Hàng mới về",
+        "Đầm thiết kế"
+      ],
+      "image": [
+        "/image/productimage/14.jpg",
+        "/image/productimage/14-2.jpg",
+        "/image/productimage/14-3.jpg",
+        "/image/productimage/14-4.jpg"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Áo khoác blazer cổ vest 6 cúc A193",
+      "price": 140000,
+      "oldprice": 180000,
+      "quantity": 200,
+      "sold": 140,
+      "collections": ["Thời trang hè", "Mẫu áo mới nhất", "Áo", "Hàng mới về"],
+      "image": [
+        "/image/productimage/15.jpg",
+        "/image/productimage/15-2.jpg",
+        "/image/productimage/15-3.jpg",
+        "/image/productimage/15-4.jpg"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Set thô nến áo cộc tay cổ bèo viền hạt mix chân váy A",
+      "price": 120000,
+      "oldprice": 180000,
+      "quantity": 200,
+      "sold": 85,
+      "collections": ["Thời trang hè", "Mẫu áo mới nhất", "Áo"],
+      "image": [
+        "/image/productimage/16.jpg",
+        "/image/productimage/16-1.jpg",
+        "/image/productimage/16-2.jpg",
+        "/image/productimage/16-3.jpg"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Quần suông ống rộng túi nắp tam giác CÚC GIỮA xếp ly hông QA19",
+      "price": 240000,
+      "oldprice": 300000,
+      "quantity": 200,
+      "sold": 145,
+      "collections": ["Thời trang hè", "Mẫu quần mới nhất", "Quần"],
+      "image": [
+        "/image/productimage/17.jpg",
+        "/image/productimage/17-2.jpg",
+        "/image/productimage/17-3.jpg",
+        "/image/productimage/17-4.jpg"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Quần jogger nữ chất nỉ da cá dày dặn viền kẻ đen ống chun unisex loại đẹp có size",
+      "price": 260000,
+      "oldprice": 300000,
+      "quantity": 200,
+      "sold": 135,
+      "collections": ["Thời trang hè", "Mẫu quần mới nhất", "Quần", "Bikini"],
+      "image": [
+        "/image/productimage/18.jpg",
+        "/image/productimage/18-2.jpg",
+        "/image/productimage/18-3.jpg",
+        "/image/productimage/18-4.jpg"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Váy thiết kế đỏ tiêu, cổ viền hoa, cut vai, tay bồng cực xinh",
+      "price": 320000,
+      "oldprice": 360000,
+      "quantity": 200,
+      "sold": 115,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Áo", "Bikini"],
+      "image": [
+        "/image/productimage/19.jpg",
+        "/image/productimage/19-2.jpg",
+        "/image/productimage/19-3.jpg",
+        "/image/productimage/19-4.jpg"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Váy xuông ly cổ chất gân siêu xinh, bầu bì bon chen thoải mái D189",
+      "price": 140000,
+      "oldprice": 180000,
+      "quantity": 200,
+      "sold": 140,
+      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Áo", "Bikini"],
+      "image": [
+        "/image/productimage/20.jpg",
+        "/image/productimage/20-1.jpg",
+        "/image/productimage/20-2.jpg",
+        "/image/productimage/20-3.jpg"
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Học lỏm” tuyệt chiêu mix&match outfit mùa hè “chuẩn” như Ninh Dương Lan Ngọc cùng loạt sao Việt",
+      "summary": "Không thể lọt qua mắt xanh của các “thánh soi”, bí quyết lên đồ giúp streetstyle của Lan Ngọc, Will, Thiên Minh,… trở nên ấn tượng và bắt mắt hơn chính là sự tinh tế trong cách kết hợp cùng các món phụ kiện thời trang từ thương hiệu PEDRO. Bên cạnh quần áo, các sao Việt cũng rất chịu khó đầu tư vào khoản phụ kiện phối cùng như túi xách, giày, trang sức,…. Phải nói rằng, những món phụ kiện thời trang góp phần biến hóa phong cách linh hoạt hơn. Nhìn vào loạt ảnh #OOTD của các sao Việt đình đám dù là streetstyle hay đi sự kiện, giới trẻ chỉ muốn copy ngay bởi gu ăn mặc chất lừ cùng thần thái “ngút ngàn” đến thế cơ.  “Bé mèo” Lan Ngọc của “Chạy đi chờ chi” thật là vàng tươi giữa một góc phố ngày hè. Sự đồng bộ về màu sắc trong cách phối đồ của Lan Ngọc đạt độ “gây. Ngọc nữ của điện ảnh Việt có vẻ dành nhiều ưu ái cho mẫu túi cầm tay thời thượng của PEDRO khi liên tục diện các items này cùng thiết kế đầm mùa hè gam màu sáng ấn tượng thương nhớ” cao.",
+      "author": "Vũ Anh Tuấn",
+      "image": "/image/blogimage/20.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng thời trang hè 2023",
+      "summary": "Không thể lọt qua mắt xanh của các “thánh soi”, bí quyết lên đồ giúp streetstyle của Lan Ngọc, Will, Thiên Minh,… trở nên ấn tượng và bắt mắt hơn chính là sự tinh tế trong cách kết hợp cùng các món phụ kiện thời trang từ thương hiệu PEDRO. Bên cạnh quần áo, các sao Việt cũng rất chịu khó đầu tư vào khoản phụ kiện phối cùng như túi xách, giày, trang sức,…. Phải nói rằng, những món phụ kiện thời trang góp phần biến hóa phong cách linh hoạt hơn. Nhìn vào loạt ảnh #OOTD của các sao Việt đình đám dù là streetstyle hay đi sự kiện, giới trẻ chỉ muốn copy ngay bởi gu ăn mặc chất lừ cùng thần thái “ngút ngàn” đến thế cơ.  “Bé mèo” Lan Ngọc của “Chạy đi chờ chi” thật là vàng tươi giữa một góc phố ngày hè. Sự đồng bộ về màu sắc trong cách phối đồ của Lan Ngọc đạt độ “gây. Ngọc nữ của điện ảnh Việt có vẻ dành nhiều ưu ái cho mẫu túi cầm tay thời thượng của PEDRO khi liên tục diện các items này cùng thiết kế đầm mùa hè gam màu sáng ấn tượng thương nhớ” cao.",
+      "author": "Phạm Thị Thùy Linh",
+      "image": "/image/blogimage/20.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Xu hướng trang phục hè 2023. Có phải thời trang caro đang trở lại ngôi vương?",
+      "summary": "Không thể lọt qua mắt xanh của các “thánh soi”, bí quyết lên đồ giúp streetstyle của Lan Ngọc, Will, Thiên Minh,… trở nên ấn tượng và bắt mắt hơn chính là sự tinh tế trong cách kết hợp cùng các món phụ kiện thời trang từ thương hiệu PEDRO. Bên cạnh quần áo, các sao Việt cũng rất chịu khó đầu tư vào khoản phụ kiện phối cùng như túi xách, giày, trang sức,…. Phải nói rằng, những món phụ kiện thời trang góp phần biến hóa phong cách linh hoạt hơn. Nhìn vào loạt ảnh #OOTD của các sao Việt đình đám dù là streetstyle hay đi sự kiện, giới trẻ chỉ muốn copy ngay bởi gu ăn mặc chất lừ cùng thần thái “ngút ngàn” đến thế cơ.  “Bé mèo” Lan Ngọc của “Chạy đi chờ chi” thật là vàng tươi giữa một góc phố ngày hè. Sự đồng bộ về màu sắc trong cách phối đồ của Lan Ngọc đạt độ “gây. Ngọc nữ của điện ảnh Việt có vẻ dành nhiều ưu ái cho mẫu túi cầm tay thời thượng của PEDRO khi liên tục diện các items này cùng thiết kế đầm mùa hè gam màu sáng ấn tượng thương nhớ” cao.",
+      "author": "Vũ Anh Tuấn",
+      "image": "/image/blogimage/20.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Tips mặc đơn giản nhưng sang như hot girl Hàn Quốc dành cho chị em hè này",
+      "summary": "Không thể lọt qua mắt xanh của các “thánh soi”, bí quyết lên đồ giúp streetstyle của Lan Ngọc, Will, Thiên Minh,… trở nên ấn tượng và bắt mắt hơn chính là sự tinh tế trong cách kết hợp cùng các món phụ kiện thời trang từ thương hiệu PEDRO. Bên cạnh quần áo, các sao Việt cũng rất chịu khó đầu tư vào khoản phụ kiện phối cùng như túi xách, giày, trang sức,…. Phải nói rằng, những món phụ kiện thời trang góp phần biến hóa phong cách linh hoạt hơn. Nhìn vào loạt ảnh #OOTD của các sao Việt đình đám dù là streetstyle hay đi sự kiện, giới trẻ chỉ muốn copy ngay bởi gu ăn mặc chất lừ cùng thần thái “ngút ngàn” đến thế cơ.  “Bé mèo” Lan Ngọc của “Chạy đi chờ chi” thật là vàng tươi giữa một góc phố ngày hè. Sự đồng bộ về màu sắc trong cách phối đồ của Lan Ngọc đạt độ “gây. Ngọc nữ của điện ảnh Việt có vẻ dành nhiều ưu ái cho mẫu túi cầm tay thời thượng của PEDRO khi liên tục diện các items này cùng thiết kế đầm mùa hè gam màu sáng ấn tượng thương nhớ” cao.",
+      "author": "Vũ Anh Tuấn",
+      "image": "/image/blogimage/20.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Những bộ bikini bùng cháy mà chị em cần phải có khi đi biển hè 2023 sắp tới",
+      "summary": "Không thể lọt qua mắt xanh của các “thánh soi”, bí quyết lên đồ giúp streetstyle của Lan Ngọc, Will, Thiên Minh,… trở nên ấn tượng và bắt mắt hơn chính là sự tinh tế trong cách kết hợp cùng các món phụ kiện thời trang từ thương hiệu PEDRO. Bên cạnh quần áo, các sao Việt cũng rất chịu khó đầu tư vào khoản phụ kiện phối cùng như túi xách, giày, trang sức,…. Phải nói rằng, những món phụ kiện thời trang góp phần biến hóa phong cách linh hoạt hơn. Nhìn vào loạt ảnh #OOTD của các sao Việt đình đám dù là streetstyle hay đi sự kiện, giới trẻ chỉ muốn copy ngay bởi gu ăn mặc chất lừ cùng thần thái “ngút ngàn” đến thế cơ.  “Bé mèo” Lan Ngọc của “Chạy đi chờ chi” thật là vàng tươi giữa một góc phố ngày hè. Sự đồng bộ về màu sắc trong cách phối đồ của Lan Ngọc đạt độ “gây. Ngọc nữ của điện ảnh Việt có vẻ dành nhiều ưu ái cho mẫu túi cầm tay thời thượng của PEDRO khi liên tục diện các items này cùng thiết kế đầm mùa hè gam màu sáng ấn tượng thương nhớ” cao.",
+      "author": "Phạm Thị Thùy Linh",
+      "image": "/image/blogimage/20.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Lựa chọn quần áo phù hợp để giảm bớt cái nhiệt oi ả mùa hè",
+      "summary": "Không thể lọt qua mắt xanh của các “thánh soi”, bí quyết lên đồ giúp streetstyle của Lan Ngọc, Will, Thiên Minh,… trở nên ấn tượng và bắt mắt hơn chính là sự tinh tế trong cách kết hợp cùng các món phụ kiện thời trang từ thương hiệu PEDRO. Bên cạnh quần áo, các sao Việt cũng rất chịu khó đầu tư vào khoản phụ kiện phối cùng như túi xách, giày, trang sức,…. Phải nói rằng, những món phụ kiện thời trang góp phần biến hóa phong cách linh hoạt hơn. Nhìn vào loạt ảnh #OOTD của các sao Việt đình đám dù là streetstyle hay đi sự kiện, giới trẻ chỉ muốn copy ngay bởi gu ăn mặc chất lừ cùng thần thái “ngút ngàn” đến thế cơ.  “Bé mèo” Lan Ngọc của “Chạy đi chờ chi” thật là vàng tươi giữa một góc phố ngày hè. Sự đồng bộ về màu sắc trong cách phối đồ của Lan Ngọc đạt độ “gây. Ngọc nữ của điện ảnh Việt có vẻ dành nhiều ưu ái cho mẫu túi cầm tay thời thượng của PEDRO khi liên tục diện các items này cùng thiết kế đầm mùa hè gam màu sáng ấn tượng thương nhớ” cao.",
+      "author": "Vũ Anh Tuấn",
+      "image": "/image/blogimage/20.jpg"
     }
   ]
 }

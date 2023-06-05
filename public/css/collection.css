@@ -1,0 +1,138 @@
+:root {
+  --main-color: #0058a8;
+  --text-color: #11006f;
+  --second-color: #de616b;
+}
+.border_box {
+  padding: 0.75rem;
+  background: #f3f3f3;
+  border: 1px solid #d4d4d4;
+}
+.banner_collection .swiper-button-next:after,
+.banner_collection .swiper-button-prev:after {
+  font-size: 1.5rem;
+}
+.banner_collection .swiper-button-next,
+.banner_collection .swiper-button-prev {
+  background: #f3f3f3;
+  padding: 1rem;
+}
+.banner_collection .swiper-button-prev {
+  border-radius: 0 50% 50% 0;
+  left: -10px;
+}
+.banner_collection .swiper-button-next {
+  border-radius: 50% 0 0 50%;
+  right: -10px;
+}
+
+/* Style các ô chọn màu */
+.filter_option .fa {
+  border-radius: 50%;
+  margin: 2px;
+  height: 30px;
+  width: 30px;
+}
+.filter-color input + label {
+  height: 36px;
+  border-radius: 50%;
+}
+.fa-white {
+  background: #fff;
+}
+.fa-black {
+  background: #000000;
+}
+.fa-yellow {
+  background: #f1c100;
+}
+.fa-red {
+  background: #ff0000;
+}
+.fa-green {
+  background: #00840f;
+}
+.fa-blue {
+  background: #1668d4;
+}
+.filter-color input {
+  display: none;
+}
+.filter-color .filter_option {
+  height: 30px;
+}
+.filter-color input:checked + label .fa:before {
+  content: "v";
+  position: absolute;
+  font-size: 0.6rem;
+  color: #fff;
+  font-weight: bold;
+  top: calc(50% + 2px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.filter_option .fa-white {
+  border: 1px solid #a9a9a9;
+}
+.filter-color input:checked + label {
+  border: 1px solid var(--second-color);
+}
+.sidebar_filter,
+.sidebar_category {
+  background: #f1f8ff;
+}
+.sidebar_category .navbar_mobile_body {
+  height: auto;
+}
+.sidebar_category .nav_list {
+  padding-left: 0;
+}
+.sidebar_title {
+  color: var(--main-color);
+}
+.filter-price .filter_option {
+  margin-bottom: 0.5rem;
+}
+.collection_summary {
+  background: #f1f8ff;
+  color: var(--second-color);
+}
+.show_filter {
+  top: 50%;
+  right: 0;
+  color: #fff;
+  display: none;
+  padding: 5px;
+  background: #0058a8;
+  z-index: 3;
+}
+.show_filter img {
+  height: 24px;
+  filter: invert(1);
+}
+.showsidebar {
+  animation: showSidebar 0.25s ease forwards;
+}
+@keyframes showSidebar {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+.medal_fade {
+  position: fixed;
+  top: 0;
+  left: -125%;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+}
+.button_close {
+  top: 0;
+  right: 0;
+  width: 40px;
+}
