@@ -25,11 +25,11 @@ const swiperCollection = new Swiper(".collections .swiper", {
     },
     768: {
       slidesPerView: 4,
-      spaceBetween: 20,
+      spaceBetween: 10,
     },
     1200: {
       slidesPerView: 8,
-      spaceBetween: 20,
+      spaceBetween: 10,
     },
   },
   navigation: {

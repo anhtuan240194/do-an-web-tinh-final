@@ -65,6 +65,10 @@ const swiperVoucher = new Swiper(".swiper_voucher", {
   },
   breakpoints: {
     992: {
+      direction: "horizontal",
+      slidesPerView: 3,
+    },
+    1200: {
       direction: "vertical",
       slidesPerView: 3,
     },

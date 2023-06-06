@@ -30,7 +30,7 @@
     <div class="header_main d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col-3 d-block d-lg-none d-xl-none d-sm-none d-md-none">
+                <div class="col-3 d-block d-lg-none d-xl-none">
                     <nav class="navbar_mobile">
                         <button class="navbar-button" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
@@ -61,7 +61,8 @@
                                         <a href="/collection.html">Khuyến mãi sốc</a>
                                     </li>
                                     <li class="nav_item">
-                                        <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Sản
+                                        <a class="dropdown_nav_lv0 position-relative" href="/"
+                                            onclick="event.preventDefault()">Sản
                                             phẩm
                                             <span class="collapse-plus position-absolute">+</span>
                                             <span class="collapse-reduce d-none position-absolute">-</span>
@@ -193,8 +194,8 @@
                                         </ul>
                                     </li>
                                     <li class="nav_item">
-                                        <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Hướng
-                                            dẫn
+                                        <a class="dropdown_nav_lv0 position-relative"
+                                            href="/" onclick="event.preventDefault()">Hướng dẫn
                                             <span class="collapse-plus position-absolute">+</span>
                                             <span class="collapse-reduce d-none position-absolute">-</span>
                                         </a>
@@ -226,12 +227,12 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-lg-2 col-md-2 col-6">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="logo">
                         <img src="image/logo.png" alt="Tuli design" />
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-7 d-none d-lg-block d-md-block">
+                <div class="col-lg-8 col-md-7 d-none d-lg-block">
                     <div class="header_menu">
                         <nav>
                             <ul class="menu_list ps-0">
@@ -302,7 +303,7 @@
                                     </ul>
                                 </li>
                                 <li class="lv0">
-                                    <a href="javascript:void(0)">Chính sách</a>
+                                    <a href="/" onclick="event.preventDefault()">Chính sách</a>
                                     <ul class="header_menu_sub">
                                         <li class="lv1"><a href="/serviceloyalty.html">Chính sách mua sỉ</a></li>
                                         <li class="lv1"><a href="/servicereturn.html">Chính sách đổi trả</a></li>
@@ -310,7 +311,7 @@
                                     </ul>
                                 </li>
                                 <li class="lv0">
-                                    <a href="javascript:void(0)">Hướng dẫn</a>
+                                    <a href="/" onclick="event.preventDefault()">Hướng dẫn</a>
                                     <ul class="header_menu_sub">
                                         <li class="lv1"><a href="/pageagent.html">Hướng dẫn đăng ký sỉ</a></li>
                                         <li class="lv1"><a href="/shoppingguide.html">Hướng dẫn mua hàng</a></li>
@@ -457,6 +458,7 @@
         <div class="modal_search position-absolute d-block"></div>
     </div>
 </header>
+
     <div class="breadcrums d-flex align-items-center mb-4">
         <div class="container">
             <li>
@@ -529,7 +531,7 @@
                             <b>Mã: </b>QA-S2.16OCEANPARK
                         </div>
                         <div class="product_quantity mt-1 d-block">
-                            <b>Tình trạng: </b>Còn <strong>80 </strong>sản phẩm
+                            <b>Tình trạng: </b><span>Còn hàng</span>
                         </div>
                     </div>
                     <div class="product_price mb-3">
@@ -602,7 +604,7 @@
                             </div>
                             <div class="button_addcart p-2 rounded-3 text-center d-inline-block">
                                 <img src="image/cartred.png" alt="Mua ngay">
-                                <span class="d-lg-block">Thêm vào giỏ</span>
+                                <span class="d-xl-block">Thêm vào giỏ</span>
                             </div>
                         </div>
                     </div>
@@ -631,16 +633,16 @@
                             <img src="image/giftbox.gif" alt="Mã ưu đãi">
                             <span class="fw-bold">Mã ưu đãi</span>
                         </div>
-                        <div class="swiper swiper_voucher">
+                        <div class="swiper swiper_voucher mt-2">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide item_voucher mb-2 mt-2 pb-3">
+                                <div class="swiper-slide item_voucher mb-2 ">
                                     <span class="d-block">Nhập mã <b>Tuli2023</b> để được giảm ngay 20k (áp dụng cho các
                                         đơn
                                         hàng trên 500k)</span>
                                     <div class="voucher_copy mt-2 d-inline-block">Sao chép</div>
                                 </div>
-                                <div class="swiper-slide item_voucher mb-2 pb-3">
+                                <div class="swiper-slide item_voucher mb-2 ">
                                     <span class="d-block">Nhập mã <b>Tuli30k</b> để được giảm ngay 30k (áp dụng cho các
                                         đơn hàng
                                         trên 1000k)</span>
@@ -861,19 +863,19 @@
                 <div class="col-12 col-lg-3 col-md-3 col-sm-6">
                     <h4 class="title_footer">HỖ TRỢ KHÁCH HÀNG</h4>
                     <ul class="list_footer">
-                        <li><a>Hướng dẫn thanh toán</a></li>
-                        <li><a>Hướng dẫn đặt hàng</a></li>
-                        <li><a>Điều kiện mua sỉ</a></li>
-                        <li><a>Hệ thống cửa hàng</a></li>
+                        <li><a href="methodpayment.html">Hướng dẫn thanh toán</a></li>
+                        <li><a href="methodpayment.html">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="methodpayment.html">Điều kiện mua sỉ</a></li>
+                        <li><a href="methodpayment.html">Hệ thống cửa hàng</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-3 col-md-3 col-sm-6">
                     <h4 class="title_footer">DỊCH VỤ KHÁCH HÀNG</h4>
                     <ul class="list_footer">
-                        <li><a>Chính sách đổi trả</a></li>
-                        <li><a>Chính sách thanh toán</a></li>
-                        <li><a>Chính sách mua sỉ</a></li>
-                        <li><a>Chính sách vận chuyển</a></li>
+                        <li><a href="servicereturn.html">Chính sách đổi trả</a></li>
+                        <li><a href="servicepayment.html">Chính sách thanh toán</a></li>
+                        <li><a href="pageagent.html">Chính sách mua sỉ</a></li>
+                        <li><a href="shoppingguide.html">Chính sách vận chuyển</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-3 col-md-3 col-sm-6">

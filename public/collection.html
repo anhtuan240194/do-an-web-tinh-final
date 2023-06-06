@@ -30,7 +30,7 @@
     <div class="header_main d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col-3 d-block d-lg-none d-xl-none d-sm-none d-md-none">
+                <div class="col-3 d-block d-lg-none d-xl-none">
                     <nav class="navbar_mobile">
                         <button class="navbar-button" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
@@ -61,7 +61,7 @@
                                         <a href="/collection.html">Khuyến mãi sốc</a>
                                     </li>
                                     <li class="nav_item">
-                                        <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Sản
+                                        <a class="dropdown_nav_lv0 position-relative" href="/" onclick="event.preventDefault()">Sản
                                             phẩm
                                             <span class="collapse-plus position-absolute">+</span>
                                             <span class="collapse-reduce d-none position-absolute">-</span>
@@ -193,7 +193,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav_item">
-                                        <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Hướng
+                                        <a class="dropdown_nav_lv0 position-relative" href="/" onclick="event.preventDefault()">Hướng
                                             dẫn
                                             <span class="collapse-plus position-absolute">+</span>
                                             <span class="collapse-reduce d-none position-absolute">-</span>
@@ -226,12 +226,12 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-lg-2 col-md-2 col-6">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="logo">
-                        <img src="image/logo.png" alt="Tuli design" />
+                        <a href="/"><img src="image/logo.png" alt="Tuli design" /></a>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-7 d-none d-lg-block d-md-block">
+                <div class="col-lg-8 col-md-7 d-none d-lg-block">
                     <div class="header_menu">
                         <nav>
                             <ul class="menu_list ps-0">
@@ -302,7 +302,7 @@
                                     </ul>
                                 </li>
                                 <li class="lv0">
-                                    <a href="javascript:void(0)">Chính sách</a>
+                                    <a href="event.preventDefault()">Chính sách</a>
                                     <ul class="header_menu_sub">
                                         <li class="lv1"><a href="/serviceloyalty.html">Chính sách mua sỉ</a></li>
                                         <li class="lv1"><a href="/servicereturn.html">Chính sách đổi trả</a></li>
@@ -310,7 +310,7 @@
                                     </ul>
                                 </li>
                                 <li class="lv0">
-                                    <a href="javascript:void(0)">Hướng dẫn</a>
+                                    <a href="event.preventDefault()">Hướng dẫn</a>
                                     <ul class="header_menu_sub">
                                         <li class="lv1"><a href="/pageagent.html">Hướng dẫn đăng ký sỉ</a></li>
                                         <li class="lv1"><a href="/shoppingguide.html">Hướng dẫn mua hàng</a></li>
@@ -416,7 +416,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3 d-none d-lg-block">
                     <div class="logo">
-                        <img src="image/logo.png" alt="Tuli design" />
+                    <a href="/"><img src="image/logo.png" alt="Tuli design" /></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
@@ -482,46 +482,28 @@
                         <!-- Slides -->
                         <div class="swiper-slide ">
                             <picture>
-                                <source media="(min-width:1200px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-2.jpg?v=1660805995563
-                        " />
-                                <source media="(min-width:577px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-2.jpg?v=1660805995563
-                        " />
-                                <source media="(max-width:576px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-2.jpg?v=1660805995563
-                        " />
-                                <img src="https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-2.jpg?v=1660805995563"
+                                <source media="(min-width:1200px)" srcset="/image/banner_collection1.jpg"/>
+                                <source media="(min-width:577px)" srcset="/image/banner_collection1.jpg" />
+                                <source media="(max-width:576px)" srcset="/image/banner_collection1.jpg" />
+                                <img src="/image/banner_collection1.jpg"
                                     alt="Slide" />
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture>
-                                <source media="(min-width:1200px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-1.jpg?v=1660805995570
-                        " />
-                                <source media="(min-width:577px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-1.jpg?v=1660805995570
-                        " />
-                                <source media="(max-width:576px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-1.jpg?v=1660805995570
-                        " />
-                                <img src="https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-1.jpg?v=1660805995570"
+                                <source media="(min-width:1200px)" srcset="/image/banner_collection2.jpg" />
+                                <source media="(min-width:577px)" srcset="/image/banner_collection2.jpg" />
+                                <source media="(max-width:576px)" srcset="/image/banner_collection2.jpg" />
+                                <img src="/image/banner_collection2.jpg"
                                     alt="Slide" />
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture>
-                                <source media="(min-width:1200px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-2.jpg?v=1660805995563
-                        " />
-                                <source media="(min-width:577px)" srcset="
-                          https://bizweb.dktcdn.net/100/448/042/themes/895670/assets/slider_2.jpg?1684913082504
-                        " />
-                                <source media="(max-width:576px)" srcset="
-                          https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-2.jpg?v=1660805995563
-                        " />
-                                <img src="https://bizweb.dktcdn.net/100/459/533/files/bn-iphone-2.jpg?v=1660805995563"
+                                <source media="(min-width:1200px)" srcset="/image/banner_collection3.jpg" />
+                                <source media="(min-width:577px)" srcset="/image/banner_collection3.jpg" />
+                                <source media="(max-width:576px)" srcset="/image/banner_collection3.jpg" />
+                                <img src="/image/banner_collection3.jpg"
                                     alt="Slide" />
                             </picture>
                         </div>
@@ -531,7 +513,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-9 col-md-9 col-sm-8 col-12 order-lg-2 ">
+                <div class="col-xl-9 col-lg-8 col-md-7 col-sm-12 col-12 order-md-2 ">
                     <div class="collections">
                         <div class="collection_summary mb-5 rounded-2 p-3">
                             <span>Để mua sản phẩm, quý khách cần đăng ký tài khoản nhà bán sỉ và đăng nhập tài khoản
@@ -539,7 +521,7 @@
                             </span>
                         </div>
                         <div class="row">
-                            <div class="col-lg-xl-3 col-lg-3 col-6 col-sm-4 col-md-4">
+                            <div class="col-lg-xl-3 col-lg-4 col-6 col-sm-6 col-md-6">
                                 <div class="product_item">
                                     <a class="product_item_img position-relative d-block" href="">
                                         <div class="product_img">
@@ -580,7 +562,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-xl-3 col-lg-3 col-6 col-sm-4 col-md-4">
+                            <div class="col-lg-xl-3 col-lg-4 col-6 col-sm-4 col-md-6">
                                 <div class="product_item">
                                     <a class="product_item_img position-relative d-block" href="">
                                         <div class="product_img">
@@ -621,7 +603,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-xl-3 col-lg-3 col-6 col-sm-4 col-md-4">
+                            <div class="col-lg-xl-3 col-lg-4 col-6 col-sm-4 col-md-6">
                                 <div class="product_item">
                                     <a class="product_item_img position-relative d-block" href="">
                                         <div class="product_img">
@@ -662,7 +644,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-xl-3 col-lg-3 col-6 col-sm-4 col-md-4">
+                            <div class="col-lg-xl-3 col-lg-4 col-6 col-sm-4 col-md-6">
                                 <div class="product_item">
                                     <a class="product_item_img position-relative d-block" href="">
                                         <div class="product_img">
@@ -706,7 +688,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-3 col-sm-4 col-12 order-lg-1 sidebar_mobile">
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12 order-md-1 sidebar_mobile">
                     <div class="sidebar_collection">
                         <div class="sidebar_category p-3 mb-3 rounded-3">
                             <div class="sidebar_title fw-bold mb-3 position-relative">DANH MỤC SẢN PHẨM
@@ -721,7 +703,7 @@
                                         <a href="/collection.html">Khuyến mãi sốc</a>
                                     </li>
                                     <li class="nav_item">
-                                        <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Sản
+                                        <a class="dropdown_nav_lv0 position-relative" href="/" onclick="event.preventDefault()">Sản
                                             phẩm
                                             <span class="collapse-plus position-absolute">+</span>
                                             <span class="collapse-reduce d-none position-absolute">-</span>
@@ -835,38 +817,38 @@
                                         </ul>
                                     </li>
                                     <li class="nav_item">
-                                        <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Chính
+                                        <a class="dropdown_nav_lv0 position-relative" href="/" onclick="event.preventDefault()">Chính
                                             sách
                                             <span class=" collapse-plus position-absolute">+</span>
                                             <span class="collapse-reduce d-none position-absolute">-</span>
                                         </a>
                                         <ul class="nav_list_lv0 d-none">
                                             <li class="nav_item nav_item_lv0">
-                                                <a href="/collection.html">Chính sách mua sỉ</a>
+                                                <a href="/serviceloyalty.html">Chính sách mua sỉ</a>
                                             </li>
                                             <li class="nav_item nav_item_lv0">
-                                                <a href="/collection.html">Chính sách đổi trả</a>
+                                                <a href="/servicereturn.html">Chính sách đổi trả</a>
                                             </li>
                                             <li class="nav_item nav_item_lv0">
-                                                <a href="/collection.html">Chính sách thanh toán</a>
+                                                <a href="/servicepayment.html">Chính sách thanh toán</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav_item">
-                                        <a class="dropdown_nav_lv0 position-relative" href="javascript:void(0)">Hướng
+                                        <a class="dropdown_nav_lv0 position-relative" href="/" onclick="event.preventDefault()">Hướng
                                             dẫn
                                             <span class="collapse-plus position-absolute">+</span>
                                             <span class="collapse-reduce d-none position-absolute">-</span>
                                         </a>
                                         <ul class="nav_list_lv0 d-none">
                                             <li class="nav_item nav_item_lv0">
-                                                <a href="/collection.html">Hướng dẫn đăng ký sỉ</a>
+                                                <a href="/pageagent.html">Hướng dẫn đăng ký sỉ</a>
                                             </li>
                                             <li class="nav_item nav_item_lv0">
-                                                <a href="/collection.html">Hướng dẫn mua hàng</a>
+                                                <a href="/methodpayment.html">Hướng dẫn mua hàng</a>
                                             </li>
                                             <li class="nav_item nav_item_lv0">
-                                                <a href="/collection.html">Hướng dẫn thanh toán</a>
+                                                <a href="/methodpayment.html">Hướng dẫn thanh toán</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -947,7 +929,7 @@
             <div class="row">
                 <div class="col-12 col-lg-3 col-md-3 col-sm-6">
                     <div class="logo_footer text-center">
-                        <img src="image/logo-footer.png" alt="Tuli design" />
+                       <a href="/"><img src="image/logo-footer.png" alt="Tuli design" /></a> 
                     </div>
                     <ul class="list_footer">
                         <li><b>Địa chỉ: </b>Tòa S2.16 KĐT Ocean Park, Gia Lâm, Hà Nội</li>

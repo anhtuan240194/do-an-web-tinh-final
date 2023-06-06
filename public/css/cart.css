@@ -27,6 +27,7 @@
   font-size: 1rem;
 }
 .cart_item_remove {
+  cursor: pointer;
   border: 1px solid var(--main-color);
   font-size: 0.8rem;
   padding: 2px 15px;
@@ -37,6 +38,7 @@
 
 .product_voucher {
     border: 1px dashed var(--main-color);
+    background:#fff;
 }
 .product_voucher_title img {
     width: 16px;
@@ -74,7 +76,23 @@
     bottom: -5px;
   }
 }
-.total_cart {
-    background: var(--main-color);
-    color: #fff;
+.total_order, .shipping_price, .discount_cart {
+    border-bottom: 1px solid #d6d6d6;
+}
+.main_cart_order {
+  background:#fff;
+}
+.final {
+    font-size: 1.25rem;
+    color: var(--second-color);
+}
+.infor_payment {
+    background: #fff;
+}
+form label {
+    margin-bottom: 0.5rem;
+}
+.cart_summary ul li {
+    list-style: disc;
+    color: #414141;
 }

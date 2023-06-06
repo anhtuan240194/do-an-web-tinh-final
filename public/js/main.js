@@ -52,10 +52,9 @@ $(document).ready(function () {
   $(".cart_remove").on("click", function () {
     $(this).closest(".cart_right_item").remove();
   });
-});
 
   //Show menu
-  $(".dropdown_nav_lv0").on("click", function(){
+  $(".dropdown_nav_lv0").on("click", function () {
     $(this).siblings(".nav_list_lv0").toggleClass("d-none");
     $(this).children("span").toggleClass("d-none");
     $(this).toggleClass("fw-bold");
@@ -66,3 +65,69 @@ $(document).ready(function () {
     $(this).siblings("span").toggleClass("d-none");
     $(this).parent().siblings(".nav_list_lv1").toggleClass("d-none");
   });
+});
+
+//Show product item
+async function showProduct(item) {
+  $(".flashsale_mainproduct .row").append(`
+    <div class="col-lg-3 col-6 col-sm-4 col-md-4">
+      <div class="product_item data-product-id="${item.id}">
+        <a class="product_item_img position-relative d-block" href="">
+          <div class="product_img">
+            <img src="${item.image[0]}" alt="${item.name}">
+          </div>
+          <div class="product_item_action position-absolute">
+            <div class="product_action product_item_view d-block">
+              <img src="/image/view.svg" alt="Xem nhanh">
+            </div>
+
+            <div class="product_action product_item_buy d-block">
+              <img src="/image/cart.svg" alt="Mua ngay">
+            </div>
+          </div>
+          <div class="tag_sale position-absolute">
+            Giảm<span> 20%</span>
+          </div>
+        </a>
+        <div class="product_item_info">
+          <div class="product_name">
+           ${item.name}
+          </div>
+          <div class="item_pricebox">
+            <div class="item_price">${item.price}đ</div>
+            <div class="old_price">${item.oldprice}đ</div>
+          </div>
+          <div class="heart_sale">
+            <div class="heart_sale_info position-relative">
+              <img alt="Tuli design" src="image/hotsale.gif">
+              <span>Đã bán <b class="sale_sold">${item.sold}</b>
+               <div class="sale_sold_sp">sản phẩm</div>
+              </span>
+              <div class="heart_sale_sold position-absolute" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `);
+}
+//Lấy dữ liệu từ api
+async function getProducts() {
+  const resProducts = await fetch("/api/products");
+  if (!resProducts.ok) throw new Error("API của products đã bị lỗi");
+
+  //Convert dữ liệu từ dạng chuỗi json sang javascript
+  const dataProducts = await resProducts.json();
+  return dataProducts;
+}
+
+//Update product
+async function updateProducts(collection) {
+  const data = await getProducts();
+  data.forEach(function (dataItem) {
+    if (dataItem.collections.includes(collection)) {
+      showProduct(dataItem);
+    }
+  });
+}
+updateProducts("Áo");

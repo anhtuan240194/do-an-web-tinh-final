@@ -5,13 +5,13 @@ section {
   .collection_item {
     text-align: center;
   }
+  .collection_item:hover img {
+    transform: scale(1.1);
+  }
 }
 
 .collection_item a {
   color: #000;
-}
-.collection_item:hover img {
-  transform: scale(1.1);
 }
 .collection_item img {
   transition: 0.25s transform ease;
@@ -177,4 +177,9 @@ section {
 }
 .collections .swiper-button-next {
   right: 5px;
+}
+@media(min-width:1200px){
+  .collection_item {
+    padding: 0.5rem;
+  }
 }
