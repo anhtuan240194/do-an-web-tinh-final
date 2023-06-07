@@ -7,7 +7,7 @@
       "oldprice": 300000,
       "quantity": 200,
       "sold": 68,
-      "variant":{"color":["Trắng", "Xanh", "Đen"], "size":["S","M","L"]},
+      "variant": { "color": ["Trắng", "Xanh", "Đen"], "size": ["S", "M", "L"] },
       "collections": ["Áo", "Quần", "Flash sale"],
       "image": [
         "/image/productimage/1.jpg",
@@ -39,7 +39,10 @@
       "oldprice": 200000,
       "quantity": 200,
       "sold": 46,
-      "variant": { "color": ["Trắng", "Đen", "Vàng"], "size": ["M", "L", "XL"] },
+      "variant": {
+        "color": ["Trắng", "Đen", "Vàng"],
+        "size": ["M", "L", "XL"]
+      },
       "collections": [
         "Đầm thiết kế",
         "Mẫu đầm mới nhất",
@@ -122,7 +125,10 @@
       "oldprice": 200000,
       "quantity": 200,
       "sold": 160,
-      "variant": { "color": ["Đen", "Xanh", "Đỏ"], "size": ["S", "M", "L", "XL"] },
+      "variant": {
+        "color": ["Đen", "Xanh", "Đỏ"],
+        "size": ["S", "M", "L", "XL"]
+      },
       "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Hàng mới về"],
       "image": [
         "/image/productimage/7.jpg",
@@ -321,7 +327,12 @@
         "color": ["Đen", "Xanh", "Đỏ"],
         "size": ["S", "M", "L", "XL"]
       },
-      "collections": ["Thời trang hè", "Mẫu quần mới nhất", "Quần"],
+      "collections": [
+        "Thời trang hè",
+        "Mẫu quần mới nhất",
+        "Quần",
+        "Xả hàng giảm sốc"
+      ],
       "image": [
         "/image/productimage/17.jpg",
         "/image/productimage/17-2.jpg",
@@ -340,7 +351,13 @@
         "color": ["Đen", "Xanh", "Đỏ"],
         "size": ["S", "M", "L", "XL"]
       },
-      "collections": ["Thời trang hè", "Mẫu quần mới nhất", "Quần", "Bikini"],
+      "collections": [
+        "Thời trang hè",
+        "Mẫu quần mới nhất",
+        "Quần",
+        "Bikini",
+        "Xả hàng giảm sốc"
+      ],
       "image": [
         "/image/productimage/18.jpg",
         "/image/productimage/18-2.jpg",
@@ -359,7 +376,13 @@
         "color": ["Đen", "Xanh", "Đỏ"],
         "size": ["S", "M", "L", "XL"]
       },
-      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Áo", "Bikini"],
+      "collections": [
+        "Đầm thiết kế",
+        "Mẫu đầm mới nhất",
+        "Áo",
+        "Bikini",
+        "Xả hàng giảm sốc"
+      ],
       "image": [
         "/image/productimage/19.jpg",
         "/image/productimage/19-2.jpg",
@@ -378,7 +401,13 @@
         "color": ["Đen", "Xanh", "Đỏ"],
         "size": ["S", "M", "L", "XL"]
       },
-      "collections": ["Đầm thiết kế", "Mẫu đầm mới nhất", "Áo", "Bikini"],
+      "collections": [
+        "Đầm thiết kế",
+        "Mẫu đầm mới nhất",
+        "Áo",
+        "Bikini",
+        "Xả hàng giảm sốc"
+      ],
       "image": [
         "/image/productimage/20.jpg",
         "/image/productimage/20-1.jpg",

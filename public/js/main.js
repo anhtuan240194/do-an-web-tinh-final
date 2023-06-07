@@ -67,12 +67,37 @@ $(document).ready(function () {
   });
 });
 
+//Lấy dữ liệu từ api
+async function getProducts() {
+  const resProducts = await fetch("/api/products");
+  if (!resProducts.ok) throw new Error("API của products đã bị lỗi");
+
+  //Convert dữ liệu từ dạng chuỗi json sang javascript
+  const dataProducts = await resProducts.json();
+  return dataProducts;
+};
+
+//Update product
+async function updateProducts(collection, module) {
+  const data = await getProducts();
+  data.forEach(function (dataItem) {
+    if (dataItem.collections.includes(collection)) {
+      showProduct(dataItem, module);
+    }
+  });
+};
+
+//Calculator heart bar product
+async function heartSold(item) {
+  return Math.floor((item.sold / item.quantity) * 100) + "%";
+};
 //Show product item
-async function showProduct(item) {
-  $(".flashsale_mainproduct .row").append(`
-    <div class="col-lg-3 col-6 col-sm-4 col-md-4">
+async function showProduct(item, module) {
+  const width = await heartSold(item);
+  $(`${module}`).append(`
+    <div class="swiper-slide">
       <div class="product_item data-product-id="${item.id}">
-        <a class="product_item_img position-relative d-block" href="">
+        <a class="product_item_img position-relative d-block" href="/product.html?product-id-${item.id}">
           <div class="product_img">
             <img src="${item.image[0]}" alt="${item.name}">
           </div>
@@ -103,31 +128,20 @@ async function showProduct(item) {
               <span>Đã bán <b class="sale_sold">${item.sold}</b>
                <div class="sale_sold_sp">sản phẩm</div>
               </span>
-              <div class="heart_sale_sold position-absolute" style="width: 80%;"></div>
+              <div class="heart_sale_sold position-absolute" style="width: ${width};"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
     `);
-}
-//Lấy dữ liệu từ api
-async function getProducts() {
-  const resProducts = await fetch("/api/products");
-  if (!resProducts.ok) throw new Error("API của products đã bị lỗi");
+};
 
-  //Convert dữ liệu từ dạng chuỗi json sang javascript
-  const dataProducts = await resProducts.json();
-  return dataProducts;
-}
-
-//Update product
-async function updateProducts(collection) {
-  const data = await getProducts();
-  data.forEach(function (dataItem) {
-    if (dataItem.collections.includes(collection)) {
-      showProduct(dataItem);
-    }
-  });
-}
-updateProducts("Áo");
+// //setup param URL
+// //convert product name to param
+// var removeDiacritics = require("diacritics").remove;
+// async function convertParam(name){
+//   return removeDiacritics(name).toLowerCase();
+// };
+// console.log(removeDiacritics("Iлｔèｒｎåｔïｏｎɑｌíƶａｔï߀ԉ"));
+// // prints "Internationalizati0n"
