@@ -75,7 +75,7 @@ async function getProducts() {
   //Convert dữ liệu từ dạng chuỗi json sang javascript
   const dataProducts = await resProducts.json();
   return dataProducts;
-};
+}
 
 //Update product
 async function updateProducts(collection, module) {
@@ -85,19 +85,27 @@ async function updateProducts(collection, module) {
       showProduct(dataItem, module);
     }
   });
-};
+
+}
+//Click product item
+$(document).on("click", ".product_item", function () {
+  const productId = $(this).data("productId");
+  console.log(productId);
+  localStorage.setItem("productId", productId);
+});
 
 //Calculator heart bar product
 async function heartSold(item) {
   return Math.floor((item.sold / item.quantity) * 100) + "%";
-};
+}
 //Show product item
 async function showProduct(item, module) {
   const width = await heartSold(item);
+  const urlParam = await diacritics(item.name);
   $(`${module}`).append(`
     <div class="swiper-slide">
-      <div class="product_item data-product-id="${item.id}">
-        <a class="product_item_img position-relative d-block" href="/product.html?product-id-${item.id}">
+      <div class="product_item" data-product-id="${item.id}">
+        <a class="product_item_img position-relative d-block" href="/product.html?${urlParam}">
           <div class="product_img">
             <img src="${item.image[0]}" alt="${item.name}">
           </div>
@@ -135,13 +143,18 @@ async function showProduct(item, module) {
       </div>
     </div>
     `);
-};
+}
 
 // //setup param URL
-// //convert product name to param
-// var removeDiacritics = require("diacritics").remove;
-// async function convertParam(name){
-//   return removeDiacritics(name).toLowerCase();
-// };
-// console.log(removeDiacritics("Iлｔèｒｎåｔïｏｎɑｌíƶａｔï߀ԉ"));
-// // prints "Internationalizati0n"
+async function diacritics(name) {
+  return name
+    .toLowerCase()
+    .replace(/[êễềếểệeẽèéẹẻ]/g, "e")
+    .replace(/[đ]/g, "d")
+    .replace(/[ỉĩịìí]/g, "i")
+    .replace(/[ãảàáạăẵặằằẳâấầẩẫậ]/g, "a")
+    .replace(/[ỷýỹỵỳ]/g, "y")
+    .replace(/[uúùủũụưữựừứử]/g, "u")
+    .replace(/[ôốồỗộổóòõỏọớờỡởợ]/g, "o")
+    .replace(/[?,.,]/g, "").replace(/ /g, "-");
+}

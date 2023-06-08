@@ -3,10 +3,12 @@
     {
       "id": 1,
       "name": "Áo polo dáng A nhăn, váy suông không cổ QA24",
+      "type": "Quần áo",
+      "sku": "TL-0353",
       "price": 250000,
       "oldprice": 300000,
       "quantity": 200,
-      "sold": 68,
+      "sold": 200,
       "variant": { "color": ["Trắng", "Xanh", "Đen"], "size": ["S", "M", "L"] },
       "collections": ["Áo", "Quần", "Flash sale"],
       "image": [
@@ -19,6 +21,8 @@
     {
       "id": 2,
       "name": "Đầm suông xòe tơ 3D hoa nhí xanh dáng dài cổ sen bèo, đính cúc gỗ",
+      "sku": "TL-0354",
+      "type": "Đầm - Váy",
       "price": 220000,
       "oldprice": 250000,
       "quantity": 200,
@@ -35,6 +39,8 @@
     {
       "id": 3,
       "name": "Váy tiểu thư dáng ngắn cổ sen phối viền đen lớp cúc giả có sẵn lớp lót quần HN02",
+      "type": "Đầm - Váy",
+      "sku": "TL-0355",
       "price": 180000,
       "oldprice": 200000,
       "quantity": 200,
@@ -59,6 +65,8 @@
     {
       "id": 4,
       "name": "Váy 2 dây dáng dài màu đỏ Sweet Girl, váy thiết kế dự tiệc V81",
+      "type": "Đầm - Váy",
+      "sku": "TL-0356",
       "price": 260000,
       "oldprice": 300000,
       "quantity": 200,
@@ -80,6 +88,8 @@
     {
       "id": 5,
       "name": "[Mua 1 tặng 1] Đầm maxi voan, váy voan nhũ dáng baby doll tặng kèm váy 2 dây lót D188",
+      "type": "Đầm - Váy",
+      "sku": "TL-0357",
       "price": 260000,
       "oldprice": 320000,
       "quantity": 200,
@@ -104,6 +114,8 @@
     {
       "id": 6,
       "name": "Set sooc yếm dạ nhũ đỏ kèm sơ mi tay bèo loại 1",
+      "type": "Set - Đồ bộ",
+      "sku": "TL-0358",
       "price": 200000,
       "oldprice": 300000,
       "quantity": 200,
@@ -121,6 +133,8 @@
     {
       "id": 7,
       "name": "Set thô nến áo cộc tay cổ bèo viền hạt mix chân váy A",
+      "type": "Set - Đồ bộ",
+      "sku": "TL-0359",
       "price": 150000,
       "oldprice": 200000,
       "quantity": 200,
@@ -141,6 +155,8 @@
     {
       "id": 8,
       "name": "Váy tiểu thư dáng ngắn cổ sen phối viền đen lớp cúc giả có sẵn lớp lót quần HN02",
+      "type": "Đầm - Váy",
+      "sku": "TL-0360",
       "price": 160000,
       "oldprice": 200000,
       "quantity": 200,
@@ -161,6 +177,8 @@
     {
       "id": 9,
       "name": "Set tơ óng 3 món áo sơ mi, áo 2 dây, chân váy trơn basic dáng xuông xòe dài",
+      "type": "Set - Đồ bộ",
+      "sku": "TL-0361",
       "price": 100000,
       "oldprice": 150000,
       "quantity": 200,
@@ -182,6 +200,8 @@
     {
       "id": 10,
       "name": "Set áo chân váy - áo cộc đen đính cúc và chân váy tơ trắng - HN15",
+      "type": "Set - Đồ bộ",
+      "sku": "TL-0362",
       "price": 150000,
       "oldprice": 175000,
       "quantity": 200,
@@ -202,6 +222,7 @@
     {
       "id": 11,
       "name": "Set thô nến áo cộc tay cổ bèo viền hạt mix chân váy A",
+      "sku": "TL-0363",
       "price": 200000,
       "oldprice": 220000,
       "quantity": 200,

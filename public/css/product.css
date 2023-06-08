@@ -99,6 +99,7 @@
 .product_numberorder button {
     border: 1px solid #000;
     height: 32px;
+    background:#fff;
     vertical-align: middle;
     width: 32px;
     font-size: 1.5rem;
@@ -237,7 +238,8 @@
 }
 @media(min-width:1200px) {
   .product_item-related .product_item_img {
-    width: 130px;
+    width: 85px;
+    min-width: 85px;
   }
   .product_relate_list {
     height: 425px;
@@ -258,8 +260,12 @@
   .swiper_voucher {
     height:390px;
   }
+  .product_relate_list .product_name {
+    margin-top: 0;
+  }
 }
 #productTab {
     white-space: nowrap;
     overflow-x: auto
 }
+
