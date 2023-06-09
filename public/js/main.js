@@ -67,7 +67,7 @@ $(document).ready(function () {
   });
 });
 
-//Lấy dữ liệu từ api
+//Lấy dữ liệu product từ api
 async function getProducts() {
   const resProducts = await fetch("/api/products");
   if (!resProducts.ok) throw new Error("API của products đã bị lỗi");
@@ -75,6 +75,16 @@ async function getProducts() {
   //Convert dữ liệu từ dạng chuỗi json sang javascript
   const dataProducts = await resProducts.json();
   return dataProducts;
+}
+
+//Lấy dữ liệu từ api
+async function getBlogs() {
+  const resBlogs = await fetch("/api/posts");
+  if (!resBlogs.ok) throw new Error("API của products đã bị lỗi");
+
+  //Convert dữ liệu từ dạng chuỗi json sang javascript
+  const dataBlogs = await resBlogs.json();
+  return dataBlogs;
 }
 
 //Update product
@@ -85,12 +95,11 @@ async function updateProducts(collection, module) {
       showProduct(dataItem, module);
     }
   });
-
 }
+
 //Click product item
 $(document).on("click", ".product_item", function () {
   const productId = $(this).data("productId");
-  console.log(productId);
   localStorage.setItem("productId", productId);
 });
 
@@ -105,10 +114,10 @@ async function showProduct(item, module) {
   $(`${module}`).append(`
     <div class="swiper-slide">
       <div class="product_item" data-product-id="${item.id}">
-        <a class="product_item_img position-relative d-block" href="/product.html?${urlParam}">
-          <div class="product_img">
+        <div class="product_item_img position-relative d-block" >
+          <a class="product_img d-block" href="/product.html?${urlParam}">
             <img src="${item.image[0]}" alt="${item.name}">
-          </div>
+          </a>
           <div class="product_item_action position-absolute">
             <div class="product_action product_item_view d-block">
               <img src="/image/view.svg" alt="Xem nhanh">
@@ -121,7 +130,7 @@ async function showProduct(item, module) {
           <div class="tag_sale position-absolute">
             Giảm<span> 20%</span>
           </div>
-        </a>
+        </div>
         <div class="product_item_info">
           <div class="product_name">
            ${item.name}
@@ -156,5 +165,28 @@ async function diacritics(name) {
     .replace(/[ỷýỹỵỳ]/g, "y")
     .replace(/[uúùủũụưữựừứử]/g, "u")
     .replace(/[ôốồỗộổóòõỏọớờỡởợ]/g, "o")
-    .replace(/[?,.,]/g, "").replace(/ /g, "-");
+    .replace(/[?,.,]/g, "")
+    .replace(/ /g, "-");
 }
+
+//click thêm vào giỏ hàng
+//Local lưu trữ cart = [{id:1, quantity:1}]
+//{cart: {items: [ {id: ?, quantity: ?} ]}}
+// $(document).on("click", ".product_item_buy", function () {
+//   const productId = $(this).closest(".product_item").data("productId");
+//   const cart = JSON.parse(localStorage.getItem("cart")) || {
+//     items: [],
+//   };
+//   // const infoProduct = card.find((item) => item.id == productId);
+//   //Cách viết khác
+//   const infoProduct = cart.items.find(function (item) {
+//     return item.id == productId; //Check item đã có hay chưa / Nếu mảng rỗng sẽ trả về false
+//   });
+
+//   if (infoProduct) {
+//     infoProduct.quantity++;
+//   } else {
+//     cart.items.push({ id: productId, quantity: 1 });
+//   }
+//   localStorage.setItem("card", JSON.stringify(cart));
+// });

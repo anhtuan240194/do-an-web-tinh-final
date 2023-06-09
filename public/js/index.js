@@ -4,14 +4,42 @@ $(document).ready(function () {
   //upodate product for module tab product
   //tab 1
   updateProducts("Hàng mới về", "#pills-product_tab1 .swiper-wrapper");
-  $(document).ready(function () {
-    //tab 2
-    updateProducts("Thời trang hè", "#pills-product_tab2 .swiper-wrapper");
-    //tab 3
-    updateProducts("Bikini", "#pills-product_tab3 .swiper-wrapper");
-    //tab 2
-    updateProducts("Xả hàng giảm sốc", "#pills-product_tab4 .swiper-wrapper");
-  });
+  //tab 2
+  updateProducts("Thời trang hè", "#pills-product_tab2 .swiper-wrapper");
+  //tab 3
+  updateProducts("Bikini", "#pills-product_tab3 .swiper-wrapper");
+  //tab 2
+  updateProducts("Xả hàng giảm sốc", "#pills-product_tab4 .swiper-wrapper");
+
+  //Update blogs index
+  async function UpdateBlogs() {
+    const dataBlogs = await getBlogs();
+    dataBlogs.forEach(async function (blog) {
+      const articleParam = await diacritics(blog.title);
+      $(".main_blog .swiper-wrapper").append(`
+      <div class="swiper-slide blog_item">
+      <a class="d-inline-block position-relative" data-blog-id="${blog.id}" href="/article?${articleParam}" class="blog_image">
+        <img src="${blog.image}"
+          alt="${blog.title}" />
+        <div class="blog_posttime position-absolute">
+          <p class="postime_date">10</p>
+          <p class="postime_month">Tháng 7</p>
+        </div>
+      </a>
+      <div class="blog_info">
+        <h3 class="blog_item_title" data-blog-id="${blog.id}">
+        <a href="/article?${articleParam}">${blog.title}</a>
+        </h3>
+        <span class="blog_item_author">Đăng bởi: ${blog.author}</span>
+        <p class="blog_item_summary">
+        ${blog.summary}
+        </p>
+      </div>
+      </div>
+      `);
+    });
+  }
+  UpdateBlogs();
 
   const swiperSlide = new Swiper(".slider .swiper", {
     direction: "horizontal",
@@ -211,4 +239,15 @@ $(document).ready(function () {
       },
     }
   );
+
+  const swiperBlog = new Swiper(".blog_swiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    breakpoints: {
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+  });
 });

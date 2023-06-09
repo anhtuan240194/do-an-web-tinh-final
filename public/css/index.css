@@ -1,10 +1,12 @@
 section {
   margin-bottom: 30px;
 }
+
 @media (min-width: 1200px) {
   .collection_item {
     text-align: center;
   }
+
   .collection_item:hover img {
     transform: scale(1.1);
   }
@@ -13,18 +15,22 @@ section {
 .collection_item a {
   color: #000;
 }
+
 .collection_item img {
   transition: 0.25s transform ease;
   max-height: 144px;
   max-width: 145px;
 }
+
 .collection_item span {
   font-size: 0.85rem;
 }
+
 .collection_item h4 {
   font-size: 1rem;
   margin-top: 0.5rem;
 }
+
 .flashsale_container {
   padding: 15px 15px 0;
   background: var(--main-color);
@@ -87,33 +93,40 @@ section {
   height: 30px;
   background-image: url("http://localhost:3000/image/hotsale.gif");
 }
+
 .sale_sold_sp {
   font-size: 0.8rem;
 }
+
 .flashsale_mainproduct .product_item_info {
   padding: 0 10px 10px;
 }
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: var(--second-color);
   background-color: unset;
   border: 1px solid var(--second-color);
 }
+
 .nav-pills .nav-link {
   border: 1px solid #000;
   height: 42px;
   color: #000;
   margin-bottom: 1px;
 }
+
 .nav-pills .nav-link img {
   max-width: 32px;
   margin-right: 10px;
   vertical-align: middle;
   margin-top: -3px;
 }
+
 .nav {
   gap: 10px;
 }
+
 .blog_posttime {
   bottom: 10px;
   left: 10px;
@@ -127,23 +140,38 @@ section {
   color: #000;
   flex-direction: column;
 }
+
 .postime_date {
   font-size: 1.255rem;
   font-weight: bold;
 }
+
 .blog_info {
   margin-top: 20px;
 }
+
 .blog_item img {
   border-radius: 8px;
 }
+
 .postime_month {
   font-size: 0.7rem;
 }
+
 .blog_item_title {
   font-size: 1.25rem;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: unset;
 }
+.blog_item_title a {
+  color: var(--main-color);
+}
+
 .blog_item_summary {
   color: #747474;
   font-size: 0.9rem;
@@ -151,17 +179,26 @@ section {
   padding-top: 10px;
   text-align: justify;
   border-top: 1px solid #cccccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  white-space: unset;
 }
+
 .blog_item_author {
   font-size: 0.9rem;
   color: #747474;
 }
+
 .blog_title {
   margin-bottom: 30px;
   text-align: center;
   font-weight: bold;
   color: var(--main-color);
 }
+
 .swiper-button-prev,
 .swiper-button-next {
   top: 50%;
@@ -172,13 +209,16 @@ section {
   width: 32px;
   height: 32px;
 }
+
 .collections .swiper-button-prev {
   left: 5px;
 }
+
 .collections .swiper-button-next {
   right: 5px;
 }
-@media(min-width:1200px){
+
+@media (min-width: 1200px) {
   .collection_item {
     padding: 0.5rem;
   }
