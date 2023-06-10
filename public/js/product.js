@@ -1,7 +1,9 @@
 $(document).ready(function () {
   //Quantity cart right
   //click
-  $(".quantity-pluss , .quantity-reduce").on("click", function () {
+  $(
+    ".product_numberorder .quantity-pluss , .product_numberorder .quantity-reduce"
+  ).on("click", function () {
     let $quantity = $(this).siblings(".number_quantity");
     let currentQuantity = parseInt($quantity.val());
     if ($(this).attr("class").includes("quantity-pluss")) {
@@ -16,7 +18,7 @@ $(document).ready(function () {
   });
 
   //Input change
-  $(".number_quantity").on("input", function () {
+  $(".product_numberorder .number_quantity").on("input", function () {
     if ($(this).val() < 1) {
       $(this).val(1);
     }
@@ -90,7 +92,7 @@ $(document).ready(function () {
           `);
         });
       }
-    }
+    };
 
     //Auto checked for variant
     $(".product_variants_size .option input")[0].checked = true;
@@ -142,11 +144,10 @@ $(document).ready(function () {
         }
       });
     });
-  }
+  };
 
   //Khởi tạo các swiper sau khi render HTML xong
   async function initializeSwiper() {
-    await updateRelatedProducts();
     await updateRelatedProducts();
     const thumbnail = new Swiper(".product_image_thumb", {
       // Optional parameters
