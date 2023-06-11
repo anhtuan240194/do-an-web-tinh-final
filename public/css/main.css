@@ -736,3 +736,9 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 .product_item_info .product_name {
   height: 47px;
 }
+.no_cart_slogan {
+    color: #878787;
+}
+.cart_item_price a:hover {
+  color:var(--second-color);
+}

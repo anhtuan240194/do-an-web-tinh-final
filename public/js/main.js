@@ -11,20 +11,6 @@ $(document).ready(function () {
     $(".header_main .header_cart_icon").trigger("click");
   });
 
-  //price item cart right
-
-  // price total cart right
-  function updateTotalPrice() {
-    let total = 0;
-    var listPrice = $(".cart_right_list .cart_right_item .price_item");
-    Array.from(listPrice).forEach(function (price) {
-      total += parseInt($(price).text().replace(/\./g, ""));
-    });
-
-    $(".total_price strong").text(total.toLocaleString());
-  }
-  updateTotalPrice();
-
   //Show menu
   $(".dropdown_nav_lv0").on("click", function () {
     $(this).siblings(".nav_list_lv0").toggleClass("d-none");
@@ -69,7 +55,7 @@ async function updateProducts(collection, module) {
   });
 }
 
-//Click product item
+//Click product item to set localStorage
 $(document).on("click", ".product_item", function () {
   const productId = $(this).data("productId");
   localStorage.setItem("productId", productId);
@@ -83,6 +69,8 @@ async function heartSold(item) {
 async function showProduct(item, module) {
   const width = await heartSold(item);
   const urlParam = await diacritics(item.name);
+  const price = item.price.toLocaleString();
+  const oldPrice = item.oldprice.toLocaleString();
   $(`${module}`).append(`
     <div class="swiper-slide">
       <div class="product_item" data-product-id="${item.id}">
@@ -108,8 +96,8 @@ async function showProduct(item, module) {
          ${item.name}
         </div>
         <div class="item_pricebox">
-          <div class="item_price">${item.price}đ</div>
-          <div class="old_price">${item.oldprice}đ</div>
+          <div class="item_price">${price}đ</div>
+          <div class="old_price">${oldPrice}đ</div>
         </div>
         <div class="heart_sale">
           <div class="heart_sale_info position-relative">
@@ -139,109 +127,183 @@ async function diacritics(name) {
     .replace(/[ôốồỗộổóòõỏọớờỡởợ]/g, "o")
     .replace(/[?,.,]/g, "")
     .replace(/ /g, "-");
-};
+}
 
-//Update local storage
-async function updateLocalStorage(productId) {
+//Update local storage when click button cart in item product
+async function updateLocalStorage(productId, status) {
   const cart = JSON.parse(localStorage.getItem("cart")) || {
     items: [],
   };
-
   const infoProduct = cart.items.find(function (item) {
     return item.id == productId; //Check item đã có hay chưa / Nếu mảng rỗng sẽ trả về false
   });
-
-  if (infoProduct) {
+  if (status) {
+    //Trạng thái giảm khi click nút -
+    infoProduct.quantity--;
+    if (infoProduct.quantity < 1) {
+      infoProduct.quantity = 1;
+    }
+  } else if (infoProduct) {
+    //trạng thái tăng khi click nút +
     infoProduct.quantity++;
     //Tăng thêm giá trị ô input trong cart item tương ứng
-    $('.cart_right_list .cart_right_item[data-cart-id="'+ productId +'"] .cart_item_number_quantity').val(infoProduct.quantity);
-
+    $(
+      '.cart_right_list .cart_right_item[data-cart-id="' +
+        productId +
+        '"] .cart_item_number_quantity'
+    ).val(infoProduct.quantity);
   } else {
     cart.items.push({ id: productId, quantity: 1 });
     await updateItemCart({ id: productId, quantity: 1 });
   }
   localStorage.setItem("cart", JSON.stringify(cart));
-};
+}
 
-//click thêm vào giỏ hàng
+//click thêm vào giỏ hàng ở item sản phẩm
 //Local lưu trữ cart = [{id:1, quantity:1}]
 //{cart: {items: [ {id: ?, quantity: ?} ]}}
 $(document).on("click", ".product_item_buy", async function () {
   const productId = $(this).closest(".product_item").data("productId");
-  await updateLocalStorage(productId);
-  setTimeout(function() {
+  //update local storage
+  await updateLocalStorage(productId, false);
+  setTimeout(function () { //Mở popup thêm giỏ hàng
     $(".header_main .header_cart_icon").trigger("click");
   }, 120);
 });
 
-  //Update product cart right item 
-  // {"items":[{"id":1,"quantity":9},{"id":2,"quantity":3},{"id":11,"quantity":3}]}
-  async function updateItemCart(obj){
-    const dataProducts = await getProducts();
-    const id = obj.id;
-    const quantity = obj.quantity;
-    const param = diacritics(dataProducts[id - 1].name);
-    $(".cart_right_list").append(`
+//Update item product cart right item
+// {"items":[{"id":1,"quantity":9},{"id":2,"quantity":3},{"id":11,"quantity":3}]}
+async function updateItemCart(obj) {
+  const dataProducts = await getProducts();
+  const id = obj.id;
+  const quantity = obj.quantity;
+  const param = diacritics(dataProducts[id - 1].name);
+  const price = quantity * dataProducts[id - 1].price;
+  const totalPrice = price.toLocaleString();
+  $(".cart_right_list").append(`
         <div class="cart_right_item mb-2 d-flex align-items-center" data-cart-id="${id}">
         <div class="cart_item_img">
-          <img src="${dataProducts[id - 1].image[0]}" alt="${dataProducts[id - 1].name}" />
+          <img src="${dataProducts[id - 1].image[0]}" alt="${
+    dataProducts[id - 1].name
+  }" />
         </div>
         <div class="cart_item_info ps-2">
-        <a href="product.html?${param}" class="cart_item_name mb-1 d-block">${dataProducts[id - 1].name}</a>
+        <a href="product.html?${param}" class="cart_item_name mb-2 d-block">${
+    dataProducts[id - 1].name
+  }</a>
         <div class="cart_item_action d-flex justify-content-between">
           <div class="cart_item_quantity">
             <span class="d-block">Số lượng</span>
-            <button class="quantity-reduce">-</button>
-            <input class="cart_item_number_quantity text-center" type="text" value="${quantity}" />
-            <button class="quantity-pluss">+</button>
+            <button class="quantity-reduce" onclick ="changeQuantity(this)">-</button>
+            <input class="cart_item_number_quantity text-center" type="number" value="${quantity}" />
+            <button class="quantity-pluss" onclick ="changeQuantity(this)">+</button>
           </div>
           <div class="cart_item_price p-2">
-            <span class="d-block"><strong class="price_item">${dataProducts[id-1].price}</strong>đ</span>
+            <span class="d-block fw-bold"><strong class="price_item">${totalPrice}</strong>đ</span>
             <a class="cart_remove">Bỏ sản phẩm</a>
           </div>
         </div>
         </div>
         </div>
     `);
+
+}
+
+//update list product cart right
+async function updateCart() {
+  const dataCart = JSON.parse(localStorage.getItem("cart"));
+  if (dataCart) {
+    //Kiểm tra xem có local hay chưa
+    dataCart.items.forEach(async function (item) {
+      await updateItemCart(item);
+    });
   };
-
-  //update product cart right
-  async function updateCart(){
-    const dataCart = JSON.parse(localStorage.getItem("cart"));
-    if (dataCart) { //Kiểm tra xem có local hay chưa
-      dataCart.items.forEach(async function (item) {
-        await updateItemCart(item);
-      });
-    }
+  if (dataCart.items.length == 0) { //Trường hợp không có sp nào trong giỏ hàng
+    $(".cart_right_list").append(`
+      <p class="no_cart_slogan">Không có sản phẩm nào trong giỏ hàng</p>
+    `);
   };
-  updateCart();
+}
+updateCart();
 
-  //Quantity cart right
-  //click
-  $(".quantity-pluss , .quantity-reduce").on("click", async function () {
-    let $quantity = $(this).siblings(".cart_item_number_quantity");
-    let currentQuantity = parseInt($quantity.val());
-    if ($(this).attr("class").includes("quantity-pluss")) {
-      $quantity.val(currentQuantity + 1);
-    } else {
-      $quantity.val(currentQuantity - 1);
-      //Set giá trị min
-      if ($quantity.val() < 1) {
-        $quantity.val(1);
-      }
-    }
-  });
+//Quantity cart right
+//Event click + - item cart right
+async function changeQuantity(event) {
+  const $quantity = $(event).siblings(".cart_item_number_quantity");
+  const productId = $(event).parents(".cart_right_item").data("cartId");
+  const currentQuantity = parseInt($quantity.val());
+  if ($(event).attr("class").includes("quantity-pluss")) {
+    $quantity.val(currentQuantity + 1);
+    updateLocalStorage(productId, false);
+  } else {
+    $quantity.val(currentQuantity - 1);
+    if ($quantity.val() < 1) {
+      $quantity.val(1);
+    };
+    updateLocalStorage(productId, true);
+    //update tổng tiền
+  };
+  updatePriceItem(productId, $quantity.val(), $quantity);
 
-  //Input change
-  $(".cart_item_number_quantity").on("input", async function () {
+}
+
+
+
+
+//Event change Input item cart right
+$(".cart_right_list").on("input", ".cart_item_number_quantity", async function () {
     if ($(this).val() < 1) {
       $(this).val(1);
     }
-  });
+    const value = $(this).val();
+    const productId = $(this).parents(".cart_right_item").data("cart-id");
+    const dataLocal = JSON.parse(localStorage.getItem("cart"));
+    const query = $(this);
+    const dataItem = dataLocal.items.find(function (item) {
+      return (item.id = productId);
+    });
+    //set lại giá trị của quantity mỗi item trong cart
+    dataItem.quantity = value;
+    localStorage.setItem("cart", JSON.stringify(dataLocal));
 
-  //Remove item product cart right
-  $(".cart_remove").on("click", async function () {
-    $(this).closest(".cart_right_item").remove();
-  });
+    //Update tổng tiền trong cart right
+    await updatePriceItem(productId, value, query);
+  }
+);
 
- 
+//Remove item product in list cart right
+$(".cart_right_list").on("click", ".cart_remove", async function () {
+  const id = $(this).closest(".cart_right_item").data("cart-id");
+  const currentData = JSON.parse(localStorage.getItem("cart")).items;
+  //Dùng findIndex tìm id, rồi xóa bỏ phần tử đó trong local storage
+  function checkId(item) {
+    return (item.id = id);
+  }
+  $(this).closest(".cart_right_item").remove();
+  //Setup  lại local storage
+  currentData.splice(currentData.findIndex(checkId), 1);
+  localStorage.setItem("cart", JSON.stringify({"items": currentData}));
+});
+
+
+  //update price item cart right
+
+async function updatePriceItem(id, value, query){
+  const data = await getProducts();
+  const price = data[id - 1].price;
+  const totalPriceItem = price * value;
+  query.parents(".cart_item_quantity").siblings(".cart_item_price").find(".price_item").text(totalPriceItem);
+  console.log(totalPriceItem);
+};
+
+  // price total cart right
+ async function updateTotalPrice() {
+    let total = 0;
+    const listPrice = $(".cart_right_list .cart_right_item .price_item");
+    listPrice.toArray().forEach(function (price) {
+      total += parseInt($(price).text().replace(/\./g, ""));
+    });
+
+    $(".total_price strong").text(total.toLocaleString());
+  }
+
