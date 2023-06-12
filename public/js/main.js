@@ -152,6 +152,13 @@ async function updateLocalStorage(productId, status) {
         productId +
         '"] .cart_item_number_quantity'
     ).val(infoProduct.quantity);
+    
+        const query = $(
+          '.cart_right_list .cart_right_item[data-cart-id="' +
+            productId +
+            '"] .cart_item_number_quantity'
+        );
+        await updatePriceItem(productId, infoProduct.quantity, query);
   } else {
     cart.items.push({ id: productId, quantity: 1 });
     await updateItemCart({ id: productId, quantity: 1 });
@@ -168,7 +175,7 @@ $(document).on("click", ".product_item_buy", async function () {
   await updateLocalStorage(productId, false);
   setTimeout(function () { //Mở popup thêm giỏ hàng
     $(".header_main .header_cart_icon").trigger("click");
-  }, 120);
+  }, 50);
 });
 
 //Update item product cart right item
@@ -206,7 +213,6 @@ async function updateItemCart(obj) {
         </div>
         </div>
     `);
-
 }
 
 //update list product cart right
@@ -218,11 +224,13 @@ async function updateCart() {
       await updateItemCart(item);
     });
   };
-  if (dataCart.items.length == 0) { //Trường hợp không có sp nào trong giỏ hàng
+  if (!dataCart || dataCart.items.length == 0) {
+    //Trường hợp không có sp nào trong giỏ hàng
     $(".cart_right_list").append(`
       <p class="no_cart_slogan">Không có sản phẩm nào trong giỏ hàng</p>
     `);
   };
+  console.log(dataCart);
 }
 updateCart();
 
@@ -291,9 +299,8 @@ $(".cart_right_list").on("click", ".cart_remove", async function () {
 async function updatePriceItem(id, value, query){
   const data = await getProducts();
   const price = data[id - 1].price;
-  const totalPriceItem = price * value;
+  const totalPriceItem = (price * value).toLocaleString();
   query.parents(".cart_item_quantity").siblings(".cart_item_price").find(".price_item").text(totalPriceItem);
-  console.log(totalPriceItem);
 };
 
   // price total cart right
