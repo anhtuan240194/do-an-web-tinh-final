@@ -14,11 +14,11 @@ $(document).ready(function () {
   //Update blogs index
   async function UpdateBlogs() {
     const dataBlogs = await getBlogs();
-    dataBlogs.forEach(async function (blog) {
-      const articleParam = await diacritics(blog.title);
-      $(".main_blog .swiper-wrapper").append(`
+    const $blogs = $.map(dataBlogs, function (blog) {
+      const articleParam = diacritics(blog.title);
+      const $blog = $(`
       <div class="swiper-slide blog_item">
-      <a class="d-inline-block position-relative" data-blog-id="${blog.id}" href="/article?${articleParam}" class="blog_image">
+      <a class="d-inline-block position-relative" data-blog-id="${blog.id}" href="/article.html?${articleParam}" class="blog_image">
         <img src="${blog.image}"
           alt="${blog.title}" />
         <div class="blog_posttime position-absolute">
@@ -37,6 +37,14 @@ $(document).ready(function () {
       </div>
       </div>
       `);
+      return $blog;
+    });
+    $(".blog_swiper .swiper-wrapper").append($blogs);
+
+    //Event click blog
+    $(".blog_item").on("click", async function () {
+      const id = $(this).find(".blog_item_title").data("blog-id");
+      localStorage.setItem("blogId", JSON.stringify(id));
     });
   }
   UpdateBlogs();

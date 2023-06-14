@@ -92,7 +92,7 @@ $(document).ready(function () {
           `);
         });
       }
-    };
+    }
 
     //Auto checked for variant
     $(".product_variants_size .option input")[0].checked = true;
@@ -114,7 +114,7 @@ $(document).ready(function () {
             const urlParam = await diacritics(product.name);
             $(".product_relate_list .swiper-wrapper").append(`
             <div class="swiper-slide">
-              <div class="product_item-related mb-2 pb-2 ">
+              <div class="product_item-related mb-2 pb-2" data-product-id="${product.id}">
                 <a href="/product.html?${urlParam}" class="product_item_img position-relative d-block" href="">
                   <div class="product_img">
                     <img src="${product.image[0]}"
@@ -122,7 +122,7 @@ $(document).ready(function () {
                   </div>
                 </a>
               <div class="product_item_info">
-                <div class="product_name">${product.name}</div>
+                <div class="product_name"><a class="d-block" href="/product.html?${urlParam}">${product.name}</a></div>
                 <div class="item_pricebox">
                   <div class="item_price">${product.price}</div>
                   <div class="old_price">${product.oldprice}</div>
@@ -144,7 +144,17 @@ $(document).ready(function () {
         }
       });
     });
-  };
+    $(document).on(
+      "click",
+      ".product_relate_list .product_item_img, .product_relate_list .product_name",
+      function () {
+        const productId = $(this)
+          .parents(".product_item-related")
+          .data("productId");
+        localStorage.setItem("productId", productId);
+      }
+    );
+  }
 
   //Khởi tạo các swiper sau khi render HTML xong
   async function initializeSwiper() {
@@ -165,6 +175,14 @@ $(document).ready(function () {
           direction: "horizontal",
         },
         992: {
+          slidesPerView: 4,
+          direction: "vertical",
+        },
+        1200: {
+          slidesPerView: 3,
+          direction: "vertical",
+        },
+        1400: {
           slidesPerView: 4,
           direction: "vertical",
         },
@@ -227,4 +245,17 @@ $(document).ready(function () {
     });
   }
   initializeSwiper();
+
+  //Event click add cart
+  $(".button_addcart ").on("click", function () {
+    const productId = JSON.parse(localStorage.getItem("productId"));
+    setTimeout(function () {
+      //Mở popup thêm giỏ hàng
+      $(".header_main .header_cart_icon").trigger("click");
+    }, 50);
+    updateLocalStorage(productId, false); //Cập nhật local
+    updateCartRight(); //Cập nhật cart right
+    updateTotalPrice(); //Cập nhật tổng giá
+    countCart(); //cập nhật rổng số lượng
+  });
 });

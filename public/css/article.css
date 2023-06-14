@@ -1,0 +1,68 @@
+:root {
+  --main-color: #0058a8;
+  --text-color: #11006f;
+  --second-color: #de616b;
+}
+.article_infor span {
+  color: #939393;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+.article_content {
+  line-height: 2rem;
+  text-align: justify;
+}
+li.item_article_related:not(:last-child) {
+  border-bottom: 1px solid #dfdfdf;
+}
+.list_article li {
+  list-style: initial;
+  padding: 0.5rem 0 0.5rem 0;
+}
+.list_article li a {
+  font-size: 0.9rem;
+  color: #000;
+}
+.list_article li::marker {
+  color: #de616b;
+  position: absolute;
+}
+.title_related {
+  font-size: 1.25rem;
+  color: var(--text-color);
+}
+.list_article {
+  padding-left: 20px;
+}
+.main_article,
+.related_article {
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+}
+#list-example {
+  background: #ffeeef;
+}
+#list-example a {
+  color: #080808;
+  position: relative;
+  padding-left: 15px;
+  font-size: 0.9rem;
+}
+#list-example a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7px;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  background: #de616b;
+}
+#list-example h3 {
+  font-size: 1.25rem;
+}
+.article_content h4 {
+  padding-top: 1rem;
+  margin-bottom: 0.5rem;
+}

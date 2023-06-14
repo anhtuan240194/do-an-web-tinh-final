@@ -62,9 +62,14 @@
   height: 30px;
 }
 .filter-color input:checked + label .fa:before {
-  content: "v";
+  content: "";
   position: absolute;
   font-size: 0.6rem;
+  background-image:url(/image/check-mark.svg);
+  width: 12px;
+  height: 12px;
+  background-size: cover;
+  filter: invert(1);
   color: #fff;
   font-weight: bold;
   top: calc(50% + 2px);

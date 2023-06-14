@@ -694,7 +694,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 100px;
   height: 100%;
   line-height: 40px;
-  right: 10px;
+  right: 0px;
   transform: translateY(-50%);
 }
 .navbar_mobile_body .nav_item_lv0 a {
@@ -721,6 +721,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 }
 .page_content {
   line-height: 2rem;
+  border: 1px solid #c9c9c9;
+  background: #f5f5f5;
 }
 .main_contact {
   background: #f4faff;
@@ -737,8 +739,18 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   height: 47px;
 }
 .no_cart_slogan {
-    color: #878787;
+  color: #878787;
 }
 .cart_item_price a:hover {
-  color:var(--second-color);
+  color: var(--second-color);
+}
+.title_page {
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+.payment a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
 }
