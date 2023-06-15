@@ -1,9 +1,13 @@
 $(document).ready(function () {
   $(".header_right_search").on("click", function () {
-    $(".header_box_search").addClass("sticky");
+    $(".header_box_search").slideDown(200, "linear", function () {
+      $(".header_box_search").addClass("sticky");
+    });
   });
   $(".modal_search ").on("click", function () {
-    $(".header_box_search").removeClass("sticky");
+    $(".header_box_search").slideUp(200, "linear", function () {
+      $(".header_box_search").removeClass("sticky");
+    });
   });
 
   //Sự kiện click vào giỏ hàng
@@ -226,7 +230,7 @@ async function updateCartRight() {
     if ($(this).val() < 1) {
       $(this).val(1);
     }
-    const value = $(this).val();
+    const value = parseInt($(this).val());
     const productId = $(this).parents(".cart_right_item").data("cart-id");
     const query = $(this);
     const dataCarts = JSON.parse(localStorage.getItem("cart"));
@@ -316,7 +320,8 @@ async function updateTotalPrice() {
     return total + dataProducts[id - 1].price * quantity;
   }, 0);
 
-  $(".total_price strong").text(total.toLocaleString());
+  $(".total_price strong").text(total.toLocaleString()+"đ");
+  return total;
 }
 
 async function countCart() {

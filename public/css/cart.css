@@ -10,17 +10,22 @@
   background: #f0f8ff;
 }
 .cart_item img {
-  width: auto;
-  height: 100px;
+  width: 75px;
 }
 .cart_item_nameproduct {
   font-size: 1rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  white-space: unset;
 }
 .cart_item_variant {
   font-size: 0.8rem;
 }
 .cart_item_infor {
-  width: 78%;
+  width: calc(100% - 200px);
 }
 .cart_item_price {
   color: #de616b;
@@ -29,13 +34,22 @@
 .cart_item_remove {
   border: 1px solid var(--main-color);
   font-size: 0.8rem;
+  cursor: pointer;
   padding: 2px 15px;
 }
-.cart_item {
+.cart_list {
   background: #fff;
+  border: 1px solid #ddd;
 }
-
+.cart_item:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+.main_cart_order {
+  background: #fff;
+  border: 1px solid #ddd;
+}
 .product_voucher {
+  background: #fff;
   border: 1px dashed var(--main-color);
 }
 .product_voucher_title img {
@@ -77,4 +91,39 @@
 .total_cart {
   background: var(--main-color);
   color: #fff;
+}
+.infor_payment {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+form label {
+  margin-bottom: 0.5rem;
+}
+input.item_cart_number_quantity {
+    width: calc(100% - 60px);
+    vertical-align: middle;
+    border-radius: 3px;
+    border: 1px solid #bfbfbf;
+    height: 24px;
+}
+.cart_summary li {
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cart_summary li:before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 5px;
+    background-image: url(/image/check-mark.svg);
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+}
+.cart_item_action {
+    width: 95px;
+}
+.final_price {
+    font-size: 1.25rem;
+    color: var(--second-color);
 }

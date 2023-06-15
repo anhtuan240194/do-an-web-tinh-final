@@ -1,20 +1,179 @@
-$(document).ready(function () {
-  $(".cart_item_remove").on("click", function () {
-    $(this).parents(".cart_item").remove();
-    if ($(".cart_item_remove").length == 0) {
-      $(".title_page").append(
-        `<p class="mt-3">Bạn không có sản phẩm nào trong giỏ hàng</p>`
-      );
+const swiperVoucher = new Swiper(".swiper_voucher", {
+  // Optional parameters
+  direction: "horizontal",
+  pagination: {
+    el: ".swiper-pagination",
+    type: "bullets",
+    clickable: true,
+  },
+});
+$(document).ready(async function(){
+  const total = await updateTotalPrice();
+  updateBill(total);
+})
+
+//Render cart
+async function renderCart() {
+  if (
+    localStorage.getItem("cart") == null ||
+    JSON.parse(localStorage.getItem("cart")).items.length == 0
+  ) {
+    $(".cart_list").append(`<p>Bạn không có sản phẩm nào trong giỏ hàng</p>`);
+  } else {
+    const dataProducts = await getProducts();
+    const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
+    const $carts = $.map(dataCarts, (cart) => {
+      const product = dataProducts[cart.id - 1];
+      const price = product.price * cart.quantity;
+      const $cart = $(`
+    <div class="cart_item d-flex gap-2 justify-content-between pb-3 align-items-center mb-3" data-product-id="${
+      cart.id
+    }">
+      <img class="cart_item_img rounded-2 " src="${
+        product.image[0]
+      }" alt="${product.name}">
+      <div class="cart_item_infor">
+          <h3 class="cart_item_nameproduct fw-bold mb-1">
+              ${product.name}
+          </h3>
+          <span class="cart_item_variant d-inline-block mb-1">Size S</span>
+          <div class="cart_item_quantity">
+              <button class="quantity-reduce" onclick="changeQuantityCart(this)">-</button>
+              <input class="item_cart_number_quantity text-center" type="number" value="${
+                cart.quantity
+              }">
+              <button class="quantity-pluss" onclick="changeQuantityCart(this)">+</button>
+          </div>
+      </div>
+      <div class="cart_item_action text-end">
+          <div class="cart_item_price fw-bold mb-3">${price.toLocaleString()}đ</div>
+          <div class="cart_item_remove d-inline-block rounded-2">
+              Xóa
+          </div>
+      </div>
+      </div>
+    `);
+      return $cart;
+    });
+    $(".cart_list").empty().append($carts);
+  }
+}
+renderCart();
+
+//Hàm update giá từng item cart
+async function updatePriceItemCart(id, value, m) {
+  const data = await getProducts();
+  const price = data[id - 1].price;
+  const totalPriceItem = (price * value).toLocaleString();
+  m.closest(".cart_item_infor")
+    .siblings(".cart_item_action")
+    .find(".cart_item_price")
+    .text(totalPriceItem);
+};
+
+//Update giá đơn hàng cuối cùng
+function updateBill(total) {
+  const voucher = JSON.parse(localStorage.getItem("voucher"));
+  let bill;
+  if (voucher) {
+    bill = (total - 30000).toLocaleString() + "đ";
+  } else {
+    bill = (total - voucher - 30000).toLocaleString() + "đ";
+  };
+  $(".final_price").text(bill);
+}
+
+//Event + - cart
+async function changeQuantityCart(event) {
+  const $quantity = $(event).siblings(".item_cart_number_quantity");
+  const productId = $(event).parents(".cart_item").data("product-id");
+  const currentQuantity = parseInt($quantity.val());
+  if ($(event).attr("class").includes("quantity-pluss")) {
+    $quantity.val(currentQuantity + 1);
+    updateLocalStorage(productId, false);
+  } else {
+    $quantity.val(currentQuantity - 1);
+    if ($quantity.val() < 1) {
+      $quantity.val(1);
     }
+    updateLocalStorage(productId, true);
+    //update tổng tiền
+  };
+  updatePriceItemCart(productId, $quantity.val(), $(event) );
+  const total = await updateTotalPrice();
+  updateBill(total);
+};
+
+  //Event change Input item cart
+  $(".cart_list").on("input",".item_cart_number_quantity", async function () {
+   
+    if ($(this).val() < 1) {
+      $(this).val(1);
+    }
+    const value = parseInt($(this).val());
+    const id = $(this).closest(".cart_item").data("product-id");
+    const query = $(this);
+    const dataCarts = JSON.parse(localStorage.getItem("cart"));
+    const cart = dataCarts.items.find(cart => {
+      return cart.id == id;
+    });
+    cart.quantity = value;
+    localStorage.setItem("cart", JSON.stringify(dataCarts));
+
+    //Update tổng tiền trong cart right
+    updatePriceItemCart(id, value, query);
+    const total = await updateTotalPrice();
+    updateBill(total);
   });
 
-  const swiperVoucher = new Swiper(".swiper_voucher", {
-    // Optional parameters
-    direction: "horizontal",
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
+$(".cart_list").on("click", ".cart_item_remove", async function () {
+  // remove item cart
+  $(this).parents(".cart_item").remove();
+  if ($(".cart_item_remove").length == 0) {
+    $(".cart_list").append(`<p>Bạn không có sản phẩm nào trong giỏ hàng</p>`);
+  }
+  const id = $(this).closest(".cart_item").data("product-id");
+  const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
+  function checkId(cart) {
+    return cart.id == id; //tạo hàm check id
+  }
+  dataCarts.splice(dataCarts.findIndex(checkId), 1);
+
+  //cập nhật lại local Storage
+  localStorage.setItem("cart", JSON.stringify({ items: dataCarts }));
+  const total = await updateTotalPrice();
+  updateBill(total);
+});
+
+
+//Select Province trang thanh toán
+(() => {
+  "use strict";
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach((form) => {
+    form.addEventListener(
+      "submit",
+      (event) => {
+        if (!form.checkValidity() || $("#phone").val().toString().length < 9) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
   });
+})();
+
+$("#form-payment").submit(function (event) {
+  event.preventDefault();
+});
+//Sự kiện click thanh toán
+$(".payment").on("click", function () {
+  $(".submit_payment").trigger("click"); //Thực hiện submit form
 });

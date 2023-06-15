@@ -65,7 +65,7 @@
   content: "";
   position: absolute;
   font-size: 0.6rem;
-  background-image:url(/image/check-mark.svg);
+  background-image: url(/image/check-mark.svg);
   width: 12px;
   height: 12px;
   background-size: cover;

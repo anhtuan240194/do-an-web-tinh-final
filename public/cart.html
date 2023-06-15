@@ -260,7 +260,7 @@
                     </div>
                     <div class="col-lg-2 col-md-6 col-6">
                         <div class="logo">
-                            <img src="image/logo.png" alt="Tuli design" />
+                            <a href="/"><img src="image/logo.png" alt="Tuli design" /></a>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-7 d-none d-lg-block">
@@ -467,81 +467,59 @@
         <div class="main_cart p-3 rounded-3">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="title_page mb-3">GIỎ HÀNG CỦA BẠN</h1>
+                    <h1 class="title_page mb-3 fw-bold">GIỎ HÀNG CỦA BẠN</h1>
                 </div>
-                <div class="col-12 col-lg-8 col-md-8 colsm-7">
-                    <div class="cart_list">
-                        <div class="cart_item d-flex justify-content-between p-2 rounded-2 align-items-center mb-3">
-                            <img class="cart_item_img rounded-2"
-                                src="https://bizweb.dktcdn.net/thumb/large/100/448/042/products/load-8cec1ff06074466ab54947cb44ef3a5e-2920de0042754f4986a073a04fcc005e-b32adde8714d4409b3a027bcc93c59fd.jpg?v=1658372597810"
-                                alt="" />
-                            <div class="cart_item_infor">
-                                <h3 class="cart_item_nameproduct fw-bold mb-1">
-                                    Tên sản phẩm
-                                </h3>
-                                <span class="cart_item_variant d-inline-block mb-1">Size S</span>
-                                <div class="cart_item_quantity">
-                                    <button class="quantity-reduce">-</button>
-                                    <input class="cart_item_number_quantity text-center" type="text" value="1" />
-                                    <button class="quantity-pluss">+</button>
-                                </div>
-                            </div>
-                            <div class="cart_item_action text-end">
-                                <div class="cart_item_price fw-bold mb-3">500000đ</div>
-                                <div class="cart_item_remove d-inline-block rounded-2">
-                                    Xóa
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart_item d-flex justify-content-between p-2 rounded-2 align-items-center mb-3">
-                            <img class="cart_item_img rounded-2"
-                                src="https://bizweb.dktcdn.net/thumb/large/100/448/042/products/load-8cec1ff06074466ab54947cb44ef3a5e-2920de0042754f4986a073a04fcc005e-b32adde8714d4409b3a027bcc93c59fd.jpg?v=1658372597810"
-                                alt="" />
-                            <div class="cart_item_infor">
-                                <h3 class="cart_item_nameproduct fw-bold mb-1">
-                                    Tên sản phẩm
-                                </h3>
-                                <span class="cart_item_variant d-inline-block mb-1">Size S</span>
-                                <div class="cart_item_quantity">
-                                    <button class="quantity-reduce">-</button>
-                                    <input class="cart_item_number_quantity text-center" type="text" value="1" />
-                                    <button class="quantity-pluss">+</button>
-                                </div>
-                            </div>
-                            <div class="cart_item_action text-end">
-                                <div class="cart_item_price fw-bold mb-3">500000đ</div>
-                                <div class="cart_item_remove d-inline-block rounded-2">
-                                    Xóa
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-12 col-xl-8 col-lg-8 col-md-7 col-sm-12">
+                    <div class="cart_list rounded-3 p-3">
                     </div>
-                    <div class="infor_payment p-3 mt-3 mb-3 rounded-3">
-                        <h2 class="mb-3 fw-bold">THÔNG TIN ĐẶT HÀNG</h2>
-                        <form action="infor_order">
+                    <div class="infor_payment p-3 mt-4 mb-4 rounded-3">
+                        <h4 class="mb-3 fw-bold">THÔNG TIN ĐẶT HÀNG</h4>
+                        <form id="form-payment" action="infor_order" class="needs-validation" novalidate>
                             <div class="row">
                                 <div class="col-12 col-xl-6 col-md-6 col-sm-6 mb-3">
-                                    <label for="name">Họ tên</label>
+                                    <label for="name" class="form-label">Họ tên</label>
                                     <input type="text" id="name" class="form-control" placeholder="*" required />
+                                    <div class="invalid-feedback">Bạn chưa nhập họ tên</div>
                                 </div>
                                 <div class="col-12 col-xl-6 col-md-6 col-sm-6 mb-3">
-                                    <label for="phone">Số điện thoại</label>
+                                    <label for="phone" class="form-label">Số điện thoại</label>
                                     <input type="number" id="phone" class="form-control" placeholder="*" required />
+                                    <div class="invalid-feedback">Bạn chưa nhập số điện thoại</div>
                                 </div>
                                 <div class="col-12 col-xl-12 col-md-12 col-sm-12 mb-3">
-                                    <label for="address">Địa chỉ</label>
+                                    <label for="address">Địa chỉ nhận hàng</label>
+                                    <div class="row">
+                                        <div class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-3 mb-md-3">
+                                            <select name="ls_province" id="province" class="form-control"
+                                                placeholder="*" required></select>
+                                        </div>
+                                        <div class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-3 mb-md-3">
+                                            <select name="ls_district" id="district" class="form-control"
+                                                placeholder="*" required></select>
+                                        </div>
+                                        <div class="col-12 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                                            <select name="ls_ward" id="ward" class="form-control" placeholder="*"
+                                                required></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-xl-12 col-md-12 col-sm-12 mb-3">
+                                    <label for="address" class="form-label">Địa chỉ chi tiết</label>
                                     <input type="text" id="address" class="form-control" placeholder="*" required />
+                                    <div class="invalid-feedback">Bạn chưa nhập địa chỉ chi tiết</div>
                                 </div>
                                 <div class="col-12 col-xl-12 col-md-12 col-sm-12">
                                     <textarea type="text" id="note" class="form-control" rows="3"
                                         placeholder="Ghi chú cho đơn hàng"></textarea>
                                 </div>
                             </div>
+                            <button type="submit" class="d-none btn btn-primary mb-3 submit_payment">Confirm
+                                identity</button>
                         </form>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-5">
-                    <div class="product_voucher rounded-2 p-3 position-relative mb-3">
+                <div class="col-12 col-xl-4 col-lg-4 col-md-5 col-sm-12">
+                    <div class="product_voucher rounded-2 p-3 position-relative mb-4">
                         <div class="product_voucher_title position-absolute">
                             <img src="image/giftbox.gif" alt="Mã ưu đãi" />
                             <span class="fw-bold">Mã ưu đãi</span>
@@ -550,17 +528,17 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide item_voucher mb-2 mt-2 pb-3">
-                                    <span class="d-block">Nhập mã <b>Tuli2023</b> để được giảm ngay 20k (áp dụng
+                                    <span class="d-block">Áp dụng mã <b>Tuli2023</b> để được giảm ngay 20k (áp dụng
                                         cho các đơn hàng trên 500k)</span>
                                     <div class="voucher_copy mt-2 d-inline-block">Áp dụng</div>
                                 </div>
                                 <div class="swiper-slide item_voucher mt-2 mb-2 pb-3">
-                                    <span class="d-block">Nhập mã <b>Tuli30k</b> để được giảm ngay 30k (áp dụng cho
+                                    <span class="d-block">Áp dụng mã <b>Tuli30k</b> để được giảm ngay 30k (áp dụng cho
                                         các đơn hàng trên 1000k)</span>
                                     <div class="voucher_copy mt-2 d-inline-block">Áp dụng</div>
                                 </div>
                                 <div class="swiper-slide item_voucher mt-2 mb-2 pb-3">
-                                    <span class="d-block">Nhập mã <b>Tuli50k</b> để được giảm ngay 50k (áp dụng cho
+                                    <span class="d-block">Áp dụng mã <b>Tuli50k</b> để được giảm ngay 50k (áp dụng cho
                                         các đơn hàng trên 1500k)</span>
                                     <div class="voucher_copy mt-2 d-inline-block">Áp dụng</div>
                                 </div>
@@ -571,26 +549,26 @@
                     <div class="main_cart_order p-3 rounded-3">
                         <div class="total_order">
                             <div class="d-flex pt-2 pb-2 justify-content-between">
-                                <span>Tạm tính: </span><span class="total">600.000đ</span>
+                                <span>Tạm tính: </span><span class="total_price fw-bold"><strong></strong></span>
                             </div>
                         </div>
                         <div class="discount_cart">
                             <div class="d-flex pt-2 pb-2 justify-content-between">
-                                <span>Giảm giá: </span><span class="shipprice">10.000đ</span>
+                                <span>Giảm giá: </span><span class="shipprice">0đ</span>
                             </div>
                         </div>
                         <div class="shipping_price">
                             <div class="d-flex pt-2 pb-2 justify-content-between">
-                                <span>Phí vận chuyển: </span><span class="shipprice">60.000đ</span>
+                                <span>Phí vận chuyển: </span><span class="shipprice">30.000đ</span>
                             </div>
                         </div>
                         <div class="action_cart pt-2 mb-4">
                             <div class="d-flex justify-content-between">
-                                <span>Tổng tiền: </span>
-                                <span class="final fw-bold">500.000đ</span>
+                                <span>Tổng cộng: </span>
+                                <span class="final_price fw-bold"><strong></strong></span>
                             </div>
                         </div>
-                        <div class="payment p-3 rounded-3">THANH TOÁN</div>
+                        <div class="payment p-2 rounded-3">THANH TOÁN</div>
                         <div class="cart_summary mt-3">
                             <ul>
                                 <li>Miễn ship cho các đơn hàng trên 5 triệu</li>
@@ -606,11 +584,18 @@
 
     <!--Footer-->
     <footer>
+        <div class="custom-shape-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                class="shape-fill"></path>
+            </svg>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-3 col-md-3 col-sm-6">
                     <div class="logo_footer text-center">
-                        <img src="image/logo-footer.png" alt="Tuli design" />
+                        <a href="/"><img src="image/logo-footer.png" alt="Tuli design" /></a>
                     </div>
                     <ul class="list_footer">
                         <li><b>Địa chỉ: </b>Tòa S2.16 KĐT Ocean Park, Gia Lâm, Hà Nội</li>
@@ -673,6 +658,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/vietnamlocal.js"></script>
 </body>
 
 </html>

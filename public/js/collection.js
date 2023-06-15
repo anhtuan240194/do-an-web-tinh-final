@@ -30,9 +30,9 @@ $(document).ready(function () {
 });
 
 //Render các sp ra
-async function renderProductsCollection(){
+async function renderProductsCollection() {
   const dataProducts = await getProducts();
-  const $products = $.map(dataProducts, product => {
+  const $products = $.map(dataProducts, (product) => {
     const title = product.title;
     const price = product.price;
     const oldPrice = product.oldprice;
@@ -73,7 +73,9 @@ async function renderProductsCollection(){
                       <span>Đã bán <b class="sale_sold">${product.sold}</b>
                           <div class="sale_sold_sp">sản phẩm</div>
                       </span>
-                      <div class="heart_sale_sold position-absolute" style="width: ${heartSold(product)}">
+                      <div class="heart_sale_sold position-absolute" style="width: ${heartSold(
+                        product
+                      )}">
                       </div>
                   </div>
               </div>
@@ -81,8 +83,8 @@ async function renderProductsCollection(){
       </div>
     </div>
     `);
-    return $product
+    return $product;
   });
   $(".collection_summary + .row").append($products);
-};
+}
 renderProductsCollection();

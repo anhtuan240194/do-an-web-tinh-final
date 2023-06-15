@@ -84,6 +84,7 @@
   .product_tabs .nav .nav-item {
     display: inline-block;
   }
+
   .flashsale_maintitle h2 {
     margin-bottom: 10px;
   }
@@ -150,6 +151,12 @@
   .cart_item_infor {
     width: calc(100% - 165px);
   }
+  .cart_item_action {
+    width:80px;
+  }
+  .cart_item_price {
+    font-size: 0.8rem;
+  }
 }
 @media (max-width: 325px) {
   .logo img {
@@ -174,6 +181,9 @@
   }
   .cart_item_img {
     display: none;
+  }
+  .cart_item_infor {
+    width: calc(100% - 90px);
   }
 }
 @media (min-width: 414px) {
