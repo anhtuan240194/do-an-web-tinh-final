@@ -10,6 +10,7 @@ const swiperVoucher = new Swiper(".swiper_voucher", {
 $(document).ready(async function(){
   const total = await updateTotalPrice();
   updateBill(total);
+  localStorage.removeItem("voucher");
 })
 
 //Render cart
@@ -74,15 +75,56 @@ async function updatePriceItemCart(id, value, m) {
 //Update giá đơn hàng cuối cùng
 function updateBill(total) {
   const voucher = JSON.parse(localStorage.getItem("voucher"));
+  const carts = JSON.parse(localStorage.getItem("cart"));
   let bill;
-  if (voucher) {
-    bill = (total - 30000).toLocaleString() + "đ";
+  if (carts.items.length == 0) {
+    $(".final_price").text("0đ");
+  } else if (voucher) {
+    bill = (total - voucher + 30000).toLocaleString() + "đ";
   } else {
-    bill = (total - voucher - 30000).toLocaleString() + "đ";
+    bill = (total + 30000).toLocaleString() + "đ";
   };
   $(".final_price").text(bill);
-}
+};
 
+//Apply voucher
+$(".voucher_copy").on("click", async function(){
+  const discount  = $(this).data("voucher");
+  await discountMoney(discount);
+});
+
+async function discountMoney(discount) {
+  const total = await updateTotalPrice();
+  if (total >= 1500000) {
+    localStorage.setItem("voucher", discount);
+    updateBill(total);
+    $(".discount").text(discount.toLocaleString() + "đ");
+  } else if (total < 1500000 && discount == 50000) {
+    alert(
+      "Mã này áp dụng cho đơn hàng trên 1500k, hãy mua thêm sản phẩm để sử dụng được mã voucher này nha <3"
+    );
+  } else if (total >= 1000000 && discount == 50000) {
+    alert(
+      "Mã này áp dụng cho đơn hàng trên 1500k, hãy mua thêm sản phẩm để sử dụng được mã voucher này nha <3"
+    );
+  } else if (total >= 1000000 && discount < 50000) {
+    localStorage.setItem("voucher", discount);
+    $(".discount").text(discount.toLocaleString() + "đ");
+    updateBill(total);
+  } else if (total < 1000000 && discount == 30000) {
+    alert(
+      "Mã này áp dụng cho đơn hàng trên 1000k, hãy mua thêm sản phẩm để sử dụng được mã voucher này nha <3"
+    );
+  } else if (total > 500000 && discount == 20000) {
+    localStorage.setItem("voucher", discount);
+    $(".discount").text(discount.toLocaleString() + "đ");
+    updateBill(total);
+  } else {
+    alert(
+      "Mã này áp dụng cho đơn hàng trên 500k, hãy mua thêm sản phẩm để sử dụng được mã voucher này nha <3"
+    );
+  }
+}
 //Event + - cart
 async function changeQuantityCart(event) {
   const $quantity = $(event).siblings(".item_cart_number_quantity");
@@ -131,6 +173,7 @@ $(".cart_list").on("click", ".cart_item_remove", async function () {
   $(this).parents(".cart_item").remove();
   if ($(".cart_item_remove").length == 0) {
     $(".cart_list").append(`<p>Bạn không có sản phẩm nào trong giỏ hàng</p>`);
+    $(".discount").text("0đ"); //Set lại giá trị trong giỏ hàng
   }
   const id = $(this).closest(".cart_item").data("product-id");
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
