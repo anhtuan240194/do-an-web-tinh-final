@@ -322,7 +322,7 @@ async function updateTotalPrice() {
 
   $(".total_price strong").text(total.toLocaleString()+"đ");
   return total;
-}
+};
 
 async function countCart() {
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
@@ -330,4 +330,17 @@ async function countCart() {
     return total + cart.quantity;
   }, 0);
   return $(".header_cart_count").text(total);
-}
+};
+
+//Event click account
+$(".header_account").on("click", function () {
+  $(".box_account_main").slideDown(200, "linear", function () {
+    $(".box_account").addClass("account-sticky");
+  });
+});
+
+$(".close_account").on("click", function () {
+  $(".box_account_main").slideUp(200, "linear", function () {
+    $(".box_account").removeClass("account-sticky");
+  });
+});

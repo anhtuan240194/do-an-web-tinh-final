@@ -392,7 +392,123 @@
       <div class="modal_search position-absolute d-block"></div>
     </div>
   </header>
-
+  <div class="box_account position-fixed">
+    <div class="box_account_main">
+      <div class="row">
+        <div class="col-12 col-xl-7 col-lg-6 col-md-6 col-sm-12">
+          <img class="box_account_img" src="/image/banner_user.jpg" alt="Tài khoản">
+        </div>
+        <div class="col-12 col-xl-5 col-lg-6 col-md-6 col-sm-12">
+          <div class="box_account_infor p-4 position-relative">
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="account-login" role="tabpanel"
+                aria-labelledby="account-login-tab" tabindex="0">
+                <div class="form_user form_login">
+                  <h3 class="mb-3 text-center">ĐĂNG NHẬP</h3>
+                  <p class="summary_form_user text-center mb-3">Mua hàng với giá sỉ không giới hạn</p>
+                  <form id="login" action="login" class="needs-validation" novalidate>
+                    <div class="line_input position-relative mb-2">
+                      <input type="number" id="phonelogin" placeholder="Số điện thoại" required>
+                      <div class="invalid-feedback">
+                        Chưa nhập số điện thoại
+                      </div>
+                      <img class="position-absolute" src="image/telephone-call.svg" alt="Số điện thoại">
+                    </div>
+                    <div class="line_input position-relative mb-2">
+                      <input type="password" id="password" placeholder="Mật khẩu" required>
+                      <div class="invalid-feedback">
+                        Chưa nhập mật khẩu
+                      </div>
+                      <img class="position-absolute" src="image/padlock.svg" alt="Mật khẩu">
+                    </div>
+                    <div class="forgot_password d-flex justify-content-between align-items-center mt-3 mb-2">
+                      <div class="remember_pass">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Ghi nhớ</label>
+                      </div>
+                      <div class="forger">
+                        Quên mật khẩu?
+                      </div>
+                    </div>
+                    <button form="login" type="submit" class="login">ĐĂNG NHẬP</button>
+                  </form>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="account-register" role="tabpanel" aria-labelledby="account-register-tab"
+                tabindex="0">
+                <div class="form_user form_register">
+                  <h3 class="mb-3 text-center">ĐĂNG KÝ</h3>
+                  <p class="summary_form_user text-center mb-3">Để có thể mua hàng tại website của Tuli Design</p>
+                  <form id="register" action="register" class="needs-validation" novalidate>
+                    <div class="line_input position-relative mb-2">
+                      <input type="text" id="nameuserregister" placeholder="Họ tên">
+                      <img class="position-absolute" src="image/user.svg" alt="Họ tên">
+                    </div>
+                    <div class="line_input position-relative mb-2">
+                      <input type="text" id="linkshop" placeholder="Link bán hàng" required>
+                      <img class="position-absolute" src="image/link.svg" alt="Link bán hàng">
+                      <div class="invalid-feedback">
+                        Chưa gắn link bán hàng
+                      </div>
+                    </div>
+                    <div class="line_input position-relative mb-2">
+                      <input type="number" id="phoneregister" placeholder="Số điện thoại" required>
+                      <div class="invalid-feedback">
+                        Chưa nhập số điện thoại
+                      </div>
+                      <img class="position-absolute" src="image/telephone-call.svg" alt="Số điện thoại">
+                    </div>
+                    <div class="line_input position-relative mb-4">
+                      <input type="password" id="passwordregister" placeholder="Mật khẩu" required>
+                      <div class="invalid-feedback">
+                        Chưa nhập mật khẩu
+                      </div>
+                      <img class="position-absolute" src="image/padlock.svg" alt="Mật khẩu">
+                    </div>
+                    <button type="submit" form="register" class="login">ĐĂNG KÝ</button>
+                  </form>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="account-forgot" role="tabpanel" aria-labelledby="account-forgot-tab"
+                tabindex="0">
+                <div class="form_user form_forgot">
+                  <h3 class="mb-3 text-center">QUÊN MẬT KHẨU</h3>
+                  <form id="forgot" action="forgot" class="needs-validation" novalidate>
+                    <div class="line_input position-relative mb-2">
+                      <label for="phoneforgot">Nhập số điện thoại đăng ký</label>
+                      <input type="number" id="phoneforgot">
+                      <img class="position-absolute" src="image/telephone-call.svg" alt="Số điện thoại">
+                      <div class="invalid-feedback">Chưa nhập số điện thoại</div>
+                    </div>
+                    <button form="forgot" type="submit" class="submitforgot">LẤY LẠI MẬT KHẨU</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <ul class="nav account-pills mb-3 justify-content-between mt-2" id="pills-tab" role="tablist">
+              <li class="account-item" role="presentation">
+                <button class="account-link active" id="account-login-tab" data-bs-toggle="pill"
+                  data-bs-target="#account-login" type="button" role="tab" aria-controls="account-login"
+                  aria-selected="true">ĐĂNG NHẬP</button>
+              </li>
+              <li class="account-item" role="presentation">
+                <button class="account-link" id="account-register-tab" data-bs-toggle="pill"
+                  data-bs-target="#account-register" type="button" role="tab" aria-controls="account-register"
+                  aria-selected="false">ĐĂNG KÝ</button>
+              </li>
+              <li class="account-item d-none" role="presentation">
+                <button class="account-link" id="account-forgot-tab" data-bs-toggle="pill"
+                  data-bs-target="#account-forgot" type="button" role="tab" aria-controls="account-forgot"
+                  aria-selected="false">QUÊN MẬT KHẨU</button>
+              </li>
+            </ul>
+            <div class="close_account d-block text-center fw-bold position-absolute">x</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box_account_medal"></div>
+  </div>
   <section class="slider">
     <!-- Slider main container -->
     <div class="swiper">
@@ -403,24 +519,21 @@
           <picture>
             <source media="(min-width:577px)" srcset="image/slider_1.jpg" />
             <source media="(max-width:576px)" srcset="image/slidermb_1.jpg" />
-            <img src="image/slider_1.jpg"
-              alt="Slide" />
+            <img src="image/slider_1.jpg" alt="Slide" />
           </picture>
         </div>
         <div class="swiper-slide slide_item">
           <picture>
             <source media="(min-width:577px)" srcset="image/slider_2.jpg" />
             <source media="(max-width:576px)" srcset="image/slidermb_2.jpg" />
-            <img src="image/slider_2.jpg"
-              alt="Slide" />
+            <img src="image/slider_2.jpg" alt="Slide" />
           </picture>
         </div>
         <div class="swiper-slide slide_item">
           <picture>
             <source media="(min-width:577px)" srcset="image/slider_3.jpg" />
             <source media="(max-width:576px)" srcset="image/slidermb_3.jpg" />
-            <img src="image/slider_3.jpg"
-              alt="Slide" />
+            <img src="image/slider_3.jpg" alt="Slide" />
           </picture>
         </div>
       </div>

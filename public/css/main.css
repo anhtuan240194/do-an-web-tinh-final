@@ -18,7 +18,7 @@ img {
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 /* Handle */
@@ -352,8 +352,8 @@ ul.mega_menu_col {
 /* Css footer */
 footer {
   background: #00427d;
-  margin-top:20px;
-  position:relative;
+  margin-top: 20px;
+  position: relative;
   padding: 65px 0 0;
   color: #fff;
 }
@@ -788,21 +788,149 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 .custom-shape-divider-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
 
 .custom-shape-divider-top svg {
-    position: relative;
-    display: block;
-    width: calc(117% + 1.3px);
-    height: 59px;
+  position: relative;
+  display: block;
+  width: calc(117% + 1.3px);
+  height: 59px;
 }
 
 .custom-shape-divider-top .shape-fill {
-    fill: #FFFFFF;
+  fill: #ffffff;
+}
+.box_account {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.form_user input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d5d5d5;
+  height: 2rem;
+  color: #000000;
+  padding: 0 10px 0 25px;
+  line-height: 2rem;
+}
+.form_user #remember {
+  height: auto;
+  line-height: initial;
+  width: auto;
+}
+.form_user input::placeholder {
+  color: #717f8f;
+}
+.form_user input:focus {
+  background: #fff;
+}
+.form_user img {
+  left: 0px;
+  height: 16px;
+  width: auto;
+  top: 8px;
+}
+.login {
+  background: linear-gradient(0deg, #2798fa, #0c49a0);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  height: 2rem;
+  line-height: 2rem;
+  width: 100%;
+}
+.login:hover {
+  background: linear-gradient(180deg, #cf3340, #e78e97);
+}
+.account-link {
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #0c49a0 !important;
+  height: 2rem;
+  line-height: 2rem;
+  border: none;
+  color: var(--main-color);
+  font-size: 0.8rem;
+  width: 120px;
+  padding: 0 15px;
+}
+.account-link:hover {
+  border:none !important;
+  background: linear-gradient(180deg, #cf3340, #e78e97);
+  color:#fff;
+}
+.account-link.active {
+  background: linear-gradient(0deg, #2798fa, #0c49a0);
+  border: none !important;
+  color: #fff;
+}
+.box_account_infor {
+  width: 100%;
+  height: 100%;
+  border-radius: 0 15px 15px 0;
+  background: #fff;
+}
+.box_account_img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 15px 0px 0px 15px;
+}
+.box_account_main {
+  width: 800px;
+  border-radius: 15px;
+  margin: 0 auto;
+  top: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+  position: relative;
+}
+.form_user h3 {
+  font-size: 1.25rem;
+}
+.summary_form_user {
+  font-size: 0.9rem;
+  color: #7c7c7c;
+}
+.form_user input::placeholder {
+  font-size: 0.8rem;
+}
+.form_user input:focus {
+  outline: none;
+}
+.close_account {
+    line-height: 19px;
+    right: 10px;
+    background: #ececec;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 20px;
+    top: 10px;
+    height: 20px;
+}
+.forger {
+    cursor: pointer;
+}
+.forger:hover {
+    color: var(--second-color);
+}
+.box_account {
+  opacity:0;
+  visibility: hidden;
+  transition: all 0.2s linear;
+}
+.account-sticky {
+  opacity:1;
+  visibility: visible;
 }
