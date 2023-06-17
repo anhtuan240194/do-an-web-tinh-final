@@ -85,6 +85,7 @@ function showProduct(item, module) {
   const urlParam = diacritics(item.name);
   const price = item.price.toLocaleString();
   const oldPrice = item.oldprice.toLocaleString();
+  const discount = Math.round((1 - item.price / item.oldprice) * 100) + "%";
   $(`${module}`).append(`
     <div class="swiper-slide">
       <div class="product_item" data-product-id="${item.id}">
@@ -102,7 +103,7 @@ function showProduct(item, module) {
           </div>
         </div>
         <div class="tag_sale position-absolute">
-          Giảm<span> 20%</span>
+          Giảm<span> ${discount}</span>
         </div>
         </div>
         <div class="product_item_info">
@@ -333,14 +334,17 @@ async function countCart() {
 };
 
 //Event click account
-$(".header_account").on("click", function () {
+$(".header_account").on("click", function (event) {
   $(".box_account_main").slideDown(200, "linear", function () {
     $(".box_account").addClass("account-sticky");
   });
 });
 
-$(".close_account").on("click", function () {
-  $(".box_account_main").slideUp(200, "linear", function () {
-    $(".box_account").removeClass("account-sticky");
-  });
+//Ngăn chặn lan truyền sự kiện click vào box-main
+$(".box_account_main").on("click", function(event){
+  event.stopPropagation();
+})
+
+$(".close_account, .box_account").on("click", function () {
+  $(".box_account").removeClass("account-sticky");
 });

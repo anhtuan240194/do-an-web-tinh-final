@@ -36,7 +36,7 @@ async function renderProductsCollection() {
     const title = product.title;
     const price = product.price;
     const oldPrice = product.oldprice;
-    const discount = Math.round((oldPrice / price) * 100) + "%";
+    const discount = Math.round((1 - price / oldPrice) * 100) + "%";
     const $product = $(`
     <div class="col-lg-xl-3 col-lg-4 col-6 col-sm-6 col-md-6">
       <div class="product_item" data-product-id="${product.id}">
