@@ -1,3 +1,16 @@
+//Function enabled - disabled button buynow
+function enabledBuynowCartright(status) {
+  if (status) {
+    $(".cart_right_payment, .payment, .buttonpayment").removeClass(
+      "disabled-click"
+    );
+    $(".cart_right_payment a").text("Thanh toán");
+    $(".payment a").text("THANH TOÁN");
+    $(".buttonpayment p").text("MUA NGAY");
+    $(".buttonpayment span").text("Giao tận nơi hoặc nhận tại cửa hàng");
+  }
+}
+
 $(document).ready(function () {
   $(".header_right_search").on("click", function () {
     $(".header_box_search").slideDown(200, "linear", function () {
@@ -27,6 +40,8 @@ $(document).ready(function () {
     $(this).siblings("span").toggleClass("d-none");
     $(this).parent().siblings(".nav_list_lv1").toggleClass("d-none");
   });
+
+  //Render cart khi KH quay lại web
   const firstLocal = JSON.parse(localStorage.getItem("cart"));
   if (firstLocal) {
     countCart();
@@ -37,6 +52,10 @@ $(document).ready(function () {
         <span class="d-block no_cart_slogan">Không có sản phẩm nào</span>
     `);
   }
+
+  //Check login disabled - enabled buy now
+  let statusLogin = JSON.parse(localStorage.getItem("statusLogin")) || false;
+  enabledBuynowCartright(statusLogin);
 });
 
 //Lấy dữ liệu product từ api
@@ -321,9 +340,9 @@ async function updateTotalPrice() {
     return total + dataProducts[id - 1].price * quantity;
   }, 0);
 
-  $(".total_price strong").text(total.toLocaleString()+"đ");
+  $(".total_price strong").text(total.toLocaleString() + "đ");
   return total;
-};
+}
 
 async function countCart() {
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
@@ -331,7 +350,7 @@ async function countCart() {
     return total + cart.quantity;
   }, 0);
   return $(".header_cart_count").text(total);
-};
+}
 
 //Event click account
 $(".header_account").on("click", function (event) {
@@ -341,10 +360,127 @@ $(".header_account").on("click", function (event) {
 });
 
 //Ngăn chặn lan truyền sự kiện click vào box-main
-$(".box_account_main").on("click", function(event){
+$(".box_account_main").on("click", function (event) {
   event.stopPropagation();
-})
+});
 
 $(".close_account, .box_account").on("click", function () {
   $(".box_account").removeClass("account-sticky");
+  $(".box_account_success").addClass("d-none");
+});
+
+// Validate form
+(() => {
+  "use strict";
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll(".needs-validation");
+
+  // Check validate form
+  Array.from(forms).forEach((form) => {
+    form.addEventListener(
+      "submit",
+      (event) => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();
+
+//Event register
+//Submit => lưu local storage account account:
+// {phone: {"user":"user", "phone":"phone", "password":"password"}, phone2: { phone, password},}
+$("#register").on("submit", function (event) {
+  event.preventDefault();
+  //Phải khai báo theo javascript vì function Validity chỉ dùng javascript
+  const form = document.querySelector("#register");
+  const user = $(this).find("#nameuserregister").val();
+  const linkStore = $(this).find("#linkshop").val();
+  const phone = $(this).find("#phoneregister").val();
+  const password = $(this).find("#passwordregister").val();
+  let users = JSON.parse(localStorage.getItem("account"));
+
+  //Tận dụng luôn function checkValidity có sẵn trong boostrap
+  if (form.checkValidity()) {
+    if (!users) {
+      //Đẩy thêm thông tin vào object
+      users = { [phone]: { user, phone, password, linkStore } };
+      localStorage.setItem("account", JSON.stringify(users));
+      localStorage.setItem("statusLogin", JSON.stringify(true));
+      $(".box_account_main").slideToggle(200, function () {
+        $("box_account_success").slideToggle(200);
+        $(".box_account_success").removeClass("d-none");
+      });
+      enabledBuynowCartright(true); //Hiển thị các nút thanh toán
+      //Đặt lại value input
+      form.reset();
+    } else {
+      if (phone in users) {
+        //Nếu đã có user này rồi
+        alert(`Tài khoản ${phone} này đã được đăng ký `);
+      } else {
+        users[phone] = { user, phone, password, linkStore };
+        $(".box_account_main").slideToggle(200, function () {
+          $("box_account_success").slideToggle(200);
+          $(".box_account_success").removeClass("d-none");
+        });
+        //Set lại kho account và đặt trạng thái login
+        localStorage.setItem("account", JSON.stringify(users));
+        localStorage.setItem("statusLogin", JSON.stringify(true));
+        enabledBuynowCartright(true);
+        //Đặt lại value input
+        form.reset();
+      }
+    }
+  }
+});
+
+// Event login
+$("#login").on("submit", function (event) {
+  event.preventDefault();
+  const form = document.querySelector("#login");
+  const users = JSON.parse(localStorage.getItem("account"));
+  const currentUser = $(this).find("#phonelogin").val();
+  const currentPassword = $(this).find("#password").val();
+  if (form.checkValidity()) {
+    if (users) {
+      //Có user
+      if (currentUser in users) {
+        //user đã được đăng ký
+        if (users[currentUser].password == currentPassword) {
+          //login success
+          localStorage.setItem("statusLogin", JSON.stringify(true));
+          $(".box_account_main").slideToggle(200, function () {
+            $(".box_login_success").removeClass("d-none");
+            setTimeout(function () {
+              $(".box_login_success").addClass("d-none");
+              $(".box_account").trigger("click");
+            }, 1000);
+          });
+
+          form.reset(); //Xóa các nội dung trên form khi login thành công
+          enabledBuynowCartright(true); //Hiển thị các nút mua hàng
+        } else {
+          alert("Sai mật khẩu");
+        }
+      } else {
+        alert("Tài khoản này chưa được đăng ký");
+      }
+    } else {
+      alert("Tài khoản này chưa được đăng ký");
+    }
+  }
+});
+$(".box_account_success").on("click", function (event) {
+  event.stopPropagation();
+});
+$(".succes_ok").on("click", function () {
+  $(".box_account").trigger("click");
+  $(".box_account_success").addClass("d-none");
 });

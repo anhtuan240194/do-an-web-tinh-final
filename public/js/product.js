@@ -48,6 +48,7 @@ $(document).ready(function () {
     });
 
     //Update infor product
+    $(".last_breadcrum").text(nameProduct);
     $("h1.product_name").text(nameProduct);
     $(".product_type").html(`<b>Loại: </b>${dataProduct.type}`);
     $(".product_sku").html(`<b>Mã: </b>${dataProduct.sku}`);
@@ -73,7 +74,7 @@ $(document).ready(function () {
           <div class="option position-relative d-inline-block mb-2 me-2">
             <input class="color position-absolute" type="radio" id="color${i}" data-color-variant="${variant}" name="optioncolor">
             <div class="variant_label position-relative d-inline-block">
-              <img src="https://bizweb.dktcdn.net/thumb/small/100/459/533/products/sm-s908-galaxys22ultra-front-green-211119.jpg?v=1660808747257" alt="">
+              <div class="img position-absolute"></div>
               <label for="color${i}">Màu ${variant}</label>
             </div>
           </div>
@@ -245,7 +246,6 @@ $(document).ready(function () {
     });
   }
   initializeSwiper();
-
   //Event click add cart
   $(".button_addcart ").on("click", function () {
     const productId = JSON.parse(localStorage.getItem("productId"));

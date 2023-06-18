@@ -228,6 +228,7 @@
       "quantity": 200,
       "sold": 140,
       "collections": ["Áo", "Mẫu áo mới nhất", "Thời trang hè"],
+      "variant": { "color": ["Trắng", "Xanh", "Đen"], "size": ["S", "M", "L"] },
       "image": [
         "/image/productimage/11.jpg",
         "/image/productimage/11-2.jpg",

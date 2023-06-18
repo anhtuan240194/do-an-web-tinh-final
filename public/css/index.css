@@ -91,7 +91,7 @@ section {
   width: 30px;
   background-size: 30px;
   height: 30px;
-  background-image: url("http://localhost:3000/image/hotsale.gif");
+  background-image: url(/image/hotsale.gif);
 }
 
 .sale_sold_sp {

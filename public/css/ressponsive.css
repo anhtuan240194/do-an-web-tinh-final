@@ -101,11 +101,8 @@
   .buttonpayment span {
     font-size: 0.8rem;
   }
-  .buttonpayment {
-    width: 265px;
-  }
   .button_addcart {
-    width: calc(100% - 280px);
+    width: 40%;
   }
   .cart_item_infor {
     width: 180px;
@@ -131,19 +128,16 @@
   .contact_infor {
     margin-bottom: 1.5rem;
   }
+  .box_account_success {
+    width: 80vw;
+  }
+  .button_addcart span {
+    display: block;
+  }
 }
 @media (max-width: 376px) {
   .heart_sale_info span {
     font-size: 0.65rem;
-  }
-  .buttonpayment span {
-    display: none;
-  }
-  .buttonpayment {
-    width: 50%;
-  }
-  .button_addcart {
-    width: calc(50% - 15px);
   }
   .cart_item_nameproduct {
     font-size: 0.8rem;
@@ -167,32 +161,30 @@
     max-width: 143px;
   }
   .buttonpayment {
-    margin-right: 5px;
-  }
-  .button_addcart {
-    width: calc(50% - 10px);
-    padding: 5px 10px !important;
+    margin-right: 0px;
   }
   .cart_item_img {
     display: none;
   }
 }
-@media (min-width: 414px) {
+@media (max-width: 1399px) {
+  .menu_list .lv0 {
+    padding: 0 9px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
   .button_addcart span {
     display: block;
   }
 }
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1399px) {
   .buttonpayment span {
-    display: none;
+    font-size: 0.75rem;
   }
   .buttonpayment {
-    width: 50%;
+    width: 240px;
   }
   .button_addcart {
-    width: calc(50% - 20px);
-  }
-  .button_addcart span {
-    display: inline;
+    width: calc(100% - 300px);
   }
 }

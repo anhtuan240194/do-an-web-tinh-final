@@ -59,12 +59,34 @@
 .variants_options input:hover + .variant_label {
   border: 1px solid var(--second-color);
 }
-.variant_label img {
+.variant_label .img {
   border-radius: 50%;
   margin-top: -1px;
   padding: 2px;
+  height: 24px;
   width: 24px;
-  border: 1px solid #b9b9b9;
+}
+.color[data-color-variant="Nâu"] ~ .variant_label .img {
+  background: #b36d00;
+}
+.color[data-color-variant="Đen"] ~ .variant_label .img {
+  background: #000;
+}
+.color[data-color-variant="Trắng"] ~ .variant_label .img {
+  background: #fff;
+  border: 1px solid #acacac;
+}
+.color[data-color-variant="Xanh"] ~ .variant_label .img {
+  background: #009e42;
+}
+.color[data-color-variant="Vàng"] ~ .variant_label .img {
+  background: #ffee00;
+}
+.color[data-color-variant="Đỏ"] ~ .variant_label .img {
+  background: #df0404;
+}
+.product_variants_color label {
+  padding-left: 30px;
 }
 .option input:checked + .variant_label {
   border: 1px solid var(--second-color);
@@ -111,13 +133,13 @@
   line-height: 32px;
   border-radius: 3px;
 }
-.product_image_thumb .swiper-slide.swiper-slide-thumb-active {
+.product_image_thumb .swiper-slide.swiper-slide-thumb-active img {
   border: 2px solid var(--second-color);
 }
-.main_product_image .product_image_thumb img {
+/* .main_product_image .product_image_thumb img {
   height: 100%;
   max-height: 131px;
-}
+} */
 .number_quantity {
   width: 100px;
   height: 32px;
@@ -133,7 +155,7 @@
   color: #fff;
   width: 285px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 1px;
   background: linear-gradient(#ff3d53, #cb0a1f);
 }
 .buttonpayment:hover {
@@ -166,6 +188,7 @@
 .button_addcart {
   border: 2px solid #de616b;
   cursor: pointer;
+  min-width: 110px;
   width: calc(100% - 300px);
 }
 .service_item {

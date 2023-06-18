@@ -30,14 +30,17 @@ $(document).ready(function () {
 });
 
 //Render các sp ra
-async function renderProductsCollection() {
+async function renderProductsCollection(min, max, Fcolor) {
   const dataProducts = await getProducts();
   const $products = $.map(dataProducts, (product) => {
-    const title = product.title;
     const price = product.price;
     const oldPrice = product.oldprice;
+    const colors = product.variant.color;
+    console.log(colors);
     const discount = Math.round((1 - price / oldPrice) * 100) + "%";
-    const $product = $(`
+    if (max === 0 || (min <= price && price <= max)) { //Hoặc all product hoặc có khoảng giá
+      if (colors.includes(Fcolor) || Fcolor == 0) { //Check có màu tương ứng không
+        const $product = $(`
     <div class="col-lg-xl-3 col-lg-4 col-6 col-sm-6 col-md-6">
       <div class="product_item" data-product-id="${product.id}">
           <a class="product_item_img position-relative d-block" href="product.html?${diacritics(
@@ -64,8 +67,8 @@ async function renderProductsCollection() {
                   ${product.name}
               </div>
               <div class="item_pricebox">
-                  <div class="item_price">${price}</div>
-                  <div class="old_price">${oldPrice}</div>
+                  <div class="item_price">${price.toLocaleString()}đ</div>
+                  <div class="old_price">${oldPrice.toLocaleString()}đ</div>
               </div>
               <div class="heart_sale">
                   <div class="heart_sale_info position-relative">
@@ -82,9 +85,39 @@ async function renderProductsCollection() {
           </div>
       </div>
     </div>
-    `);
-    return $product;
+        `);
+        return $product;
+      }
+    }
   });
   $(".collection_summary + .row").append($products);
 }
-renderProductsCollection();
+renderProductsCollection(0, 0, 0); //Render all product
+
+//Event filter price
+$(".filter-price input").on("change", function(){
+  if ($(this).is(":checked")) { //Nếu ô input được checked
+    const min = $(this).data("price-min");
+    const max = $(this).data("price-max");
+    //Render lại collection
+    $(".collections .row").empty();
+    renderProductsCollection(min, max, 0);
+  } else {
+    $(".collections .row").empty();
+    renderProductsCollection(0, 0, 0); //Render all product
+  }
+});
+
+//Event filter color
+$(".filter-color input").on("change", function () {
+  if ($(this).is(":checked")) {
+    //Nếu ô input được checked
+    const color = $(this).data("filter-color");
+    //Render lại collection
+    $(".collections .row").empty();
+    renderProductsCollection(0, 0, color);
+  } else {
+    $(".collections .row").empty();
+    renderProductsCollection(0, 0, 0); //Render all product
+  }
+});

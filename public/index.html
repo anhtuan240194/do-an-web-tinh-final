@@ -333,8 +333,8 @@
                   <span>Tổng tiền:</span>
                   <span class="total_price float-end"><strong></strong></span>
                 </div>
-                <div class="cart_right_payment d-block">
-                  <button class="payment"><a href="cart.html">Thanh toán</a></button>
+                <div class="cart_right_payment d-block disabled-click">
+                  <button class="payment"><a href="cart.html">Bạn cần đăng nhập</a></button>
                 </div>
               </div>
             </div>
@@ -400,22 +400,16 @@
                   <p class="summary_form_user text-center mb-3">Mua hàng với giá sỉ không giới hạn</p>
                   <form id="login" action="login" class="needs-validation" novalidate>
                     <div class="line_input position-relative mb-2">
-                      <input type="number" id="phonelogin" placeholder="Số điện thoại" required>
-                      <div class="invalid-feedback">
-                        Chưa nhập số điện thoại
-                      </div>
+                      <input type="number" id="phonelogin" placeholder="Số điện thoại" class="form-control" required>
                       <img class="position-absolute" src="image/telephone-call.svg" alt="Số điện thoại">
                     </div>
                     <div class="line_input position-relative mb-2">
-                      <input type="password" id="password" placeholder="Mật khẩu" required>
-                      <div class="invalid-feedback">
-                        Chưa nhập mật khẩu
-                      </div>
+                      <input type="password" id="password" placeholder="Mật khẩu" class="form-control" required>
                       <img class="position-absolute" src="image/padlock.svg" alt="Mật khẩu">
                     </div>
                     <div class="forgot_password d-flex justify-content-between align-items-center mt-3 mb-2">
                       <div class="remember_pass">
-                        <input type="checkbox" id="remember">
+                        <input type="checkbox" id="remember" checked="checked">
                         <label for="remember">Ghi nhớ</label>
                       </div>
                       <div class="forger">
@@ -433,31 +427,22 @@
                   <p class="summary_form_user text-center mb-3">Để có thể mua hàng tại website của Tuli Design</p>
                   <form id="register" action="register" class="needs-validation" novalidate>
                     <div class="line_input position-relative mb-2">
-                      <input type="text" id="nameuserregister" placeholder="Họ tên">
+                      <input type="text" id="nameuserregister" placeholder="Họ tên" class="form-control" required>
                       <img class="position-absolute" src="image/user.svg" alt="Họ tên">
                     </div>
                     <div class="line_input position-relative mb-2">
-                      <input type="text" id="linkshop" placeholder="Link bán hàng" required>
+                      <input type="text" id="linkshop" placeholder="Link bán hàng" class="form-control" required>
                       <img class="position-absolute" src="image/link.svg" alt="Link bán hàng">
-                      <div class="invalid-feedback">
-                        Chưa gắn link bán hàng
-                      </div>
                     </div>
                     <div class="line_input position-relative mb-2">
-                      <input type="number" id="phoneregister" placeholder="Số điện thoại" required>
-                      <div class="invalid-feedback">
-                        Chưa nhập số điện thoại
-                      </div>
+                      <input type="number" id="phoneregister" placeholder="Số điện thoại" class="form-control" required>
                       <img class="position-absolute" src="image/telephone-call.svg" alt="Số điện thoại">
                     </div>
                     <div class="line_input position-relative mb-4">
-                      <input type="password" id="passwordregister" placeholder="Mật khẩu" required>
-                      <div class="invalid-feedback">
-                        Chưa nhập mật khẩu
-                      </div>
+                      <input type="password" id="passwordregister" placeholder="Mật khẩu" class="form-control" required>
                       <img class="position-absolute" src="image/padlock.svg" alt="Mật khẩu">
                     </div>
-                    <button type="submit" form="register" class="login">ĐĂNG KÝ</button>
+                    <button type="submit" form="register" class="register">ĐĂNG KÝ</button>
                   </form>
                 </div>
               </div>
@@ -468,11 +453,11 @@
                   <form id="forgot" action="forgot" class="needs-validation" novalidate>
                     <div class="line_input position-relative mb-2">
                       <label for="phoneforgot">Nhập số điện thoại đăng ký</label>
-                      <input type="number" id="phoneforgot">
+                      <input type="number" id="phoneforgot" class="form-control" required>
                       <img class="position-absolute" src="image/telephone-call.svg" alt="Số điện thoại">
                       <div class="invalid-feedback">Chưa nhập số điện thoại</div>
                     </div>
-                    <button form="forgot" type="submit" class="submitforgot">LẤY LẠI MẬT KHẨU</button>
+                    <button form="forgot" type="submit" class="forgot">LẤY LẠI MẬT KHẨU</button>
                   </form>
                 </div>
               </div>
@@ -499,7 +484,23 @@
         </div>
       </div>
     </div>
-    <div class="box_account_medal"></div>
+    <div class="box_account_success p-3 d-none">
+      <div class="succsess-container text-center">
+        <img src="/image/success.png" alt="Đăng ký thành công">
+        <p class="slogan_success mt-3 mb-2">Chúc mừng bạn đã đăng ký tài khoản thành công</p>
+        <p class="success_norti mb-3">Tài khoản bạn đăng ký chưa thể sử dụng ngay bây giờ, chúng tôi sẽ
+          xác minh và xét duyệt tài khoản mua hàng của bạn nếu đã đủ điều kiện
+        </p>
+        <div class="text-center"><span class="succes_ok d-block">OK</span></div>
+      </div>
+    </div>
+    <div class="box_login_success p-3 d-none position-relative">
+      <div class="succsess-container text-center">
+        <img src="/image/login-success.png" alt="Đăng nhập thành công">
+        <p class="slogan_login_success mt-3 mb-2">Đăng nhập thành công
+        </p>
+      </div>
+    </div>
   </div>
   <section class="slider">
     <!-- Slider main container -->

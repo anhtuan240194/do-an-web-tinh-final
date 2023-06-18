@@ -7,11 +7,11 @@ const swiperVoucher = new Swiper(".swiper_voucher", {
     clickable: true,
   },
 });
-$(document).ready(async function(){
+$(document).ready(async function () {
   const total = await updateTotalPrice();
   updateBill(total);
   localStorage.removeItem("voucher");
-})
+});
 
 //Render cart
 async function renderCart() {
@@ -30,9 +30,9 @@ async function renderCart() {
     <div class="cart_item d-flex gap-2 justify-content-between pb-3 align-items-center mb-3" data-product-id="${
       cart.id
     }">
-      <img class="cart_item_img rounded-2 " src="${
-        product.image[0]
-      }" alt="${product.name}">
+      <img class="cart_item_img rounded-2 " src="${product.image[0]}" alt="${
+        product.name
+      }">
       <div class="cart_item_infor">
           <h3 class="cart_item_nameproduct fw-bold mb-1">
               ${product.name}
@@ -70,7 +70,7 @@ async function updatePriceItemCart(id, value, m) {
     .siblings(".cart_item_action")
     .find(".cart_item_price")
     .text(totalPriceItem);
-};
+}
 
 //Update giá đơn hàng cuối cùng
 function updateBill(total) {
@@ -83,13 +83,13 @@ function updateBill(total) {
     bill = (total - voucher + 30000).toLocaleString() + "đ";
   } else {
     bill = (total + 30000).toLocaleString() + "đ";
-  };
+  }
   $(".final_price").text(bill);
-};
+}
 
 //Apply voucher
-$(".voucher_copy").on("click", async function(){
-  const discount  = $(this).data("voucher");
+$(".voucher_copy").on("click", async function () {
+  const discount = $(this).data("voucher");
   await discountMoney(discount);
 });
 
@@ -140,33 +140,32 @@ async function changeQuantityCart(event) {
     }
     updateLocalStorage(productId, true);
     //update tổng tiền
-  };
-  updatePriceItemCart(productId, $quantity.val(), $(event) );
+  }
+  updatePriceItemCart(productId, $quantity.val(), $(event));
   const total = await updateTotalPrice();
   updateBill(total);
-};
+}
 
-  //Event change Input item cart
-  $(".cart_list").on("input",".item_cart_number_quantity", async function () {
-   
-    if ($(this).val() < 1) {
-      $(this).val(1);
-    }
-    const value = parseInt($(this).val());
-    const id = $(this).closest(".cart_item").data("product-id");
-    const query = $(this);
-    const dataCarts = JSON.parse(localStorage.getItem("cart"));
-    const cart = dataCarts.items.find(cart => {
-      return cart.id == id;
-    });
-    cart.quantity = value;
-    localStorage.setItem("cart", JSON.stringify(dataCarts));
-
-    //Update tổng tiền trong cart right
-    updatePriceItemCart(id, value, query);
-    const total = await updateTotalPrice();
-    updateBill(total);
+//Event change Input item cart
+$(".cart_list").on("input", ".item_cart_number_quantity", async function () {
+  if ($(this).val() < 1) {
+    $(this).val(1);
+  }
+  const value = parseInt($(this).val());
+  const id = $(this).closest(".cart_item").data("product-id");
+  const query = $(this);
+  const dataCarts = JSON.parse(localStorage.getItem("cart"));
+  const cart = dataCarts.items.find((cart) => {
+    return cart.id == id;
   });
+  cart.quantity = value;
+  localStorage.setItem("cart", JSON.stringify(dataCarts));
+
+  //Update tổng tiền trong cart right
+  updatePriceItemCart(id, value, query);
+  const total = await updateTotalPrice();
+  updateBill(total);
+});
 
 $(".cart_list").on("click", ".cart_item_remove", async function () {
   // remove item cart
@@ -188,35 +187,11 @@ $(".cart_list").on("click", ".cart_item_remove", async function () {
   updateBill(total);
 });
 
-
-//Select Province trang thanh toán
-(() => {
-  "use strict";
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll(".needs-validation");
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach((form) => {
-    form.addEventListener(
-      "submit",
-      (event) => {
-        if (!form.checkValidity() || $("#phone").val().toString().length < 9) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
-})();
-
 $("#form-payment").submit(function (event) {
   event.preventDefault();
 });
 //Sự kiện click thanh toán
 $(".payment").on("click", function () {
   $(".submit_payment").trigger("click"); //Thực hiện submit form
+  
 });

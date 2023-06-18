@@ -34,7 +34,9 @@ ul,
 li {
   list-style: none;
 }
-
+.fixed-top {
+    z-index: 3;
+}
 a {
   text-decoration: none !important;
   cursor: pointer;
@@ -808,10 +810,11 @@ input[type="number"] {
 }
 .box_account {
   width: 100vw;
+  z-index:9999;
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 4;
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -841,7 +844,9 @@ input[type="number"] {
   width: auto;
   top: 8px;
 }
-.login {
+.login,
+.register,
+.forgot {
   background: linear-gradient(0deg, #2798fa, #0c49a0);
   color: #fff;
   border: none;
@@ -850,7 +855,9 @@ input[type="number"] {
   line-height: 2rem;
   width: 100%;
 }
-.login:hover {
+.login:hover,
+.register:hover,
+.forgot:hover {
   background: linear-gradient(180deg, #cf3340, #e78e97);
 }
 .account-link {
@@ -866,9 +873,9 @@ input[type="number"] {
   padding: 0 15px;
 }
 .account-link:hover {
-  border:none !important;
+  border: none !important;
   background: linear-gradient(180deg, #cf3340, #e78e97);
-  color:#fff;
+  color: #fff;
 }
 .account-link.active {
   background: linear-gradient(0deg, #2798fa, #0c49a0);
@@ -887,7 +894,8 @@ input[type="number"] {
   height: 100%;
   border-radius: 15px 0px 0px 15px;
 }
-.box_account_main {
+.box_account_main,
+.box_account_success {
   width: 800px;
   border-radius: 15px;
   margin: 0 auto;
@@ -910,27 +918,82 @@ input[type="number"] {
   outline: none;
 }
 .close_account {
-    line-height: 19px;
-    right: 10px;
-    background: #ececec;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 20px;
-    top: 10px;
-    height: 20px;
+  line-height: 19px;
+  right: 10px;
+  background: #ececec;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 20px;
+  top: 10px;
+  height: 20px;
 }
 .forger {
-    cursor: pointer;
+  cursor: pointer;
 }
 .forger:hover {
-    color: var(--second-color);
+  color: var(--second-color);
 }
 .box_account {
-  opacity:0;
+  opacity: 0;
   visibility: hidden;
   transition: all 0.2s linear;
 }
 .account-sticky {
-  opacity:1;
+  opacity: 1;
   visibility: visible;
+}
+.form-control {
+  border-radius: 0;
+}
+.box_account_success {
+  width: 600px;
+}
+.box_account_success img {
+  height: 60px;
+  width: auto;
+}
+.slogan_success {
+  font-size: 1.25rem;
+  color: var(--main-color);
+}
+.succes_ok {
+  height: 36px;
+  width: 120px;
+  line-height: 36px;
+  background: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 30px;
+  margin: 0 auto;
+}
+.succes_ok:hover {
+  background: var(--second-color);
+}
+.box_login_success {
+  width: 400px;
+  border-radius: 15px;
+  margin: 0 auto;
+  top: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+}
+.box_login_success img {
+  height: 120px;
+  width: auto;
+}
+.disabled-click {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.submit_contact {
+  border: none;
+  background: var(--main-color);
+  color: #fff;
+}
+.submit_contact:hover {
+  background: var(--second-color);
+}
+.main_contact h1 {
+  font-size: 1.5rem;
 }
