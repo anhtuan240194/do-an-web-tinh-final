@@ -1,5 +1,5 @@
 //Function enabled - disabled button buynow
-function enabledBuynowCartright(status) {
+function enabledBuynowCartright(status, user) {
   if (status) {
     $(".cart_right_payment, .payment, .buttonpayment").removeClass(
       "disabled-click"
@@ -8,6 +8,11 @@ function enabledBuynowCartright(status) {
     $(".payment a").text("THANH TOÁN");
     $(".buttonpayment p").text("MUA NGAY");
     $(".buttonpayment span").text("Giao tận nơi hoặc nhận tại cửa hàng");
+    $(".header_account").html(`<img src="image/search.svg" alt="Đăng xuất">`);
+    $(".user_register_mb").removeClass("d-block").addClass("d-none");
+    $(".user_name_mb").removeClass("d-none").text(user);
+    $(".user_logout_mb").removeClass("d-none");
+    $(".user_login_mb").addClass("d-none");
   }
 }
 
@@ -55,7 +60,7 @@ $(document).ready(function () {
 
   //Check login disabled - enabled buy now
   let statusLogin = JSON.parse(localStorage.getItem("statusLogin")) || false;
-  enabledBuynowCartright(statusLogin);
+  enabledBuynowCartright(statusLogin.status);
 });
 
 //Lấy dữ liệu product từ api
@@ -213,9 +218,9 @@ async function updateCartRight() {
     const $cart = $(`
       <div class="cart_right_item mb-2 d-flex align-items-center" data-cart-id="${id}">
         <div class="cart_item_img">
-          <img src="${dataProducts[id - 1].image[0]}" alt="${
-      dataProducts[id - 1].name
-    }" />
+          <a href="product.html?${param}"><img src="${
+      dataProducts[id - 1].image[0]
+    }" alt="${dataProducts[id - 1].name}" /></a>
         </div>
         <div class="cart_item_info ps-2">
         <a href="product.html?${param}" class="cart_item_name mb-2 d-block">${
@@ -244,6 +249,12 @@ async function updateCartRight() {
 
   //Render cart right
   $(".cart_right_list").empty().append($carts);
+
+  //Event click item cart right
+  $(".cart_item_name, .cart_item_img").on("click", function () {
+    const nextId = $(this).closest(".cart_right_item").data("cart-id");
+    localStorage.setItem("productId", JSON.stringify(nextId));
+  });
 
   //Event change Input item cart right
   $(".cart_item_number_quantity").on("input", async function () {
@@ -412,12 +423,15 @@ $("#register").on("submit", function (event) {
       //Đẩy thêm thông tin vào object
       users = { [phone]: { user, phone, password, linkStore } };
       localStorage.setItem("account", JSON.stringify(users));
-      localStorage.setItem("statusLogin", JSON.stringify(true));
+      localStorage.setItem(
+        "statusLogin",
+        JSON.stringify({ status: true, user: user })
+      );
       $(".box_account_main").slideToggle(200, function () {
         $("box_account_success").slideToggle(200);
         $(".box_account_success").removeClass("d-none");
       });
-      enabledBuynowCartright(true); //Hiển thị các nút thanh toán
+      enabledBuynowCartright(true, user); //Hiển thị các nút thanh toán
       //Đặt lại value input
       form.reset();
     } else {
@@ -432,8 +446,11 @@ $("#register").on("submit", function (event) {
         });
         //Set lại kho account và đặt trạng thái login
         localStorage.setItem("account", JSON.stringify(users));
-        localStorage.setItem("statusLogin", JSON.stringify(true));
-        enabledBuynowCartright(true);
+        localStorage.setItem(
+          "statusLogin",
+          JSON.stringify({ status: true, user: user })
+        );
+        enabledBuynowCartright(true, user);
         //Đặt lại value input
         form.reset();
       }
@@ -455,7 +472,10 @@ $("#login").on("submit", function (event) {
         //user đã được đăng ký
         if (users[currentUser].password == currentPassword) {
           //login success
-          localStorage.setItem("statusLogin", JSON.stringify(true));
+          localStorage.setItem(
+            "statusLogin",
+            JSON.stringify({ status: true, user: users[currentUser].user })
+          );
           $(".box_account_main").slideToggle(200, function () {
             $(".box_login_success").removeClass("d-none");
             setTimeout(function () {
@@ -465,7 +485,7 @@ $("#login").on("submit", function (event) {
           });
 
           form.reset(); //Xóa các nội dung trên form khi login thành công
-          enabledBuynowCartright(true); //Hiển thị các nút mua hàng
+          enabledBuynowCartright(true, users[currentUser].user); //Hiển thị các nút mua hàng
         } else {
           alert("Sai mật khẩu");
         }
@@ -483,4 +503,15 @@ $(".box_account_success").on("click", function (event) {
 $(".succes_ok").on("click", function () {
   $(".box_account").trigger("click");
   $(".box_account_success").addClass("d-none");
+});
+
+//Event login mobile
+$(".user_login_mb").on("click", function () {
+  $(".header_account, .btn-close").trigger("click");
+});
+//event Logout
+$(".user_logout_mb").on("click", function () {
+  localStorage.removeItem("statusLogin");
+  //Tải lại trang
+  location.reload();
 });

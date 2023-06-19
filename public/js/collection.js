@@ -36,10 +36,11 @@ async function renderProductsCollection(min, max, Fcolor) {
     const price = product.price;
     const oldPrice = product.oldprice;
     const colors = product.variant.color;
-    console.log(colors);
     const discount = Math.round((1 - price / oldPrice) * 100) + "%";
-    if (max === 0 || (min <= price && price <= max)) { //Hoặc all product hoặc có khoảng giá
-      if (colors.includes(Fcolor) || Fcolor == 0) { //Check có màu tương ứng không
+    if (max === 0 || (min <= price && price <= max)) {
+      //Hoặc all product hoặc có khoảng giá
+      if (colors.includes(Fcolor) || Fcolor == 0) {
+        //Check có màu tương ứng không
         const $product = $(`
     <div class="col-lg-xl-3 col-lg-4 col-6 col-sm-6 col-md-6">
       <div class="product_item" data-product-id="${product.id}">
@@ -94,9 +95,17 @@ async function renderProductsCollection(min, max, Fcolor) {
 }
 renderProductsCollection(0, 0, 0); //Render all product
 
+//Đảm bảo chỉ 1 ô input filter được click
+$(".filter_option input").on("change", function () {
+  if ($(".filter_option input").is(":checked")) {
+    $(".filter_option input").not($(this)).prop("checked", false);
+  }
+});
+
 //Event filter price
-$(".filter-price input").on("change", function(){
-  if ($(this).is(":checked")) { //Nếu ô input được checked
+$(".filter-price input").on("change", function () {
+  if ($(this).is(":checked")) {
+    //Nếu ô input được checked
     const min = $(this).data("price-min");
     const max = $(this).data("price-max");
     //Render lại collection

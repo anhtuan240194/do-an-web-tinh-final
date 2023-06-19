@@ -35,7 +35,7 @@ li {
   list-style: none;
 }
 .fixed-top {
-    z-index: 3;
+  z-index: 3;
 }
 a {
   text-decoration: none !important;
@@ -810,7 +810,7 @@ input[type="number"] {
 }
 .box_account {
   width: 100vw;
-  z-index:9999;
+  z-index: 9999;
   height: 100vh;
   top: 0;
   left: 0;

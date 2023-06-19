@@ -39,11 +39,13 @@
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                   <div class="offcanvas-title" id="offcanvasNavbarLabel">
-                    <div class="nav_account gap-3 d-flex">
+                    <div class="nav_account gap-3 d-flex align-items-center">
                       <img src="image/profile.svg" alt="Tài khoản">
                       <div class="account_info">
-                        <a class="d-block" href="login.html">Đăng nhập</a>
-                        <a class="d-block" href="register.html">Đăng ký</a>
+                        <p class="user_register_mb d-block">Đăng ký</p>
+                        <p class="user_login_mb d-block">Đăng nhập</p>
+                        <p class="user_name_mb d-none">Tên khách</p>
+                        <p class="user_logout_mb d-none">Đăng xuất</p>
                       </div>
                     </div>
                   </div>
@@ -385,13 +387,13 @@
     </div>
   </header>
   <div class="box_account position-fixed">
-    <div class="box_account_main">
+    <div class="box_account_main position-relative">
       <div class="row">
         <div class="col-12 col-xl-7 col-lg-6 col-md-6 col-sm-12">
           <img class="box_account_img" src="/image/banner_user.jpg" alt="Tài khoản">
         </div>
         <div class="col-12 col-xl-5 col-lg-6 col-md-6 col-sm-12">
-          <div class="box_account_infor p-4 position-relative">
+          <div class="box_account_infor p-4">
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade show active" id="account-login" role="tabpanel"
                 aria-labelledby="account-login-tab" tabindex="0">

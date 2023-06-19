@@ -134,6 +134,19 @@
   .button_addcart span {
     display: block;
   }
+  .box_account_main,
+  .box_account_success {
+    width: 80vw;
+  }
+  .box_account_img {
+    border-radius: 15px 15px 0px 0px;
+  }
+  .box_account_infor {
+    border-radius: 0 0px 15px 15px;
+  }
+  .order_succsess {
+    width: 90vw;
+  }
 }
 @media (max-width: 376px) {
   .heart_sale_info span {

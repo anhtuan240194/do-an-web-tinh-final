@@ -52,7 +52,7 @@ $(document).ready(function () {
   const swiperSlide = new Swiper(".slider .swiper", {
     direction: "horizontal",
     loop: true,
-    autoplay:true,
+    autoplay: true,
     pagination: {
       el: ".slider .swiper-pagination",
       clickable: true,

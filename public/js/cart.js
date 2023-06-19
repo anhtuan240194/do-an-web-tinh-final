@@ -193,5 +193,39 @@ $("#form-payment").submit(function (event) {
 //Sự kiện click thanh toán
 $(".payment").on("click", function () {
   $(".submit_payment").trigger("click"); //Thực hiện submit form
-  
+  const form = document.querySelector("#form-payment");
+  if (form.checkValidity()) {
+    //Check form
+    const name = $("#form-payment #name").val();
+    const province = $("#province option:selected").text();
+    const district = $("#district option:selected").text();
+    const ward = $("#ward option:selected").text();
+    const total = $(".final_price").text();
+    $(".name_order").html(`<b>Người đặt: </b>${name}`);
+    $(".address_order").html(
+      `<b>Địa chỉ: </b>${province}, ${district}, ${ward}`
+    );
+    $(".order_total").html(`<b>Số tiền thanh toán: </b>${total}`);
+
+    //show item product
+    const carts = $(".cart_item");
+    $orders = $.map(carts, function (cart) {
+      const nameProduct = $(cart).find(".cart_item_nameproduct").text();
+      const quantityProduct = $(cart).find(".item_cart_number_quantity").val();
+      const $order = $(`
+        <tr>
+          <td>${nameProduct}</td>
+          <td>${quantityProduct}</td>
+        </tr>
+      `);
+      return $order;
+    });
+    $(".information_order tbody").append($orders);
+    $(".box_order_success").addClass("show_class"); //hiển thị box success
+  }
+});
+
+//Event close order
+$(".close_order_success, .close_order span").on("click", function () {
+  $(".box_order_success").removeClass("show_class");
 });

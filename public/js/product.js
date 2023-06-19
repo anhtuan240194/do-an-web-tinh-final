@@ -17,6 +17,28 @@ $(document).ready(function () {
     }
   });
 
+  const relatedProduct = new Swiper(".product_relate_list", {
+    // Optional parameters
+    direction: "horizontal",
+    slidesPerView: 3,
+    spaceBetween: 10,
+    watchSlidesProgress: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        direction: "horizontal",
+      },
+      768: {
+        slidesPerView: 3,
+        direction: "horizontal",
+      },
+      1200: {
+        slidesPerView: 3,
+        direction: "vertical",
+      },
+    },
+  });
+
   //Input change
   $(".product_numberorder .number_quantity").on("input", function () {
     if ($(this).val() < 1) {
@@ -222,40 +244,41 @@ $(document).ready(function () {
         },
       },
     });
-
-    const relatedProduct = new Swiper(".product_relate_list", {
-      // Optional parameters
-      direction: "horizontal",
-      slidesPerView: 3,
-      spaceBetween: 10,
-      watchSlidesProgress: true,
-      breakpoints: {
-        320: {
-          slidesPerView: 2,
-          direction: "horizontal",
-        },
-        768: {
-          slidesPerView: 3,
-          direction: "horizontal",
-        },
-        1200: {
-          slidesPerView: 3,
-          direction: "vertical",
-        },
-      },
-    });
   }
   initializeSwiper();
   //Event click add cart
-  $(".button_addcart ").on("click", function () {
+  $(".button_addcart, .buttonpayment ").on("click", function () {
     const productId = JSON.parse(localStorage.getItem("productId"));
+    const carts = JSON.parse(localStorage.getItem("cart"));
+    const value = $(".product_numberorder .number_quantity").val();
+    if (carts) {
+      //Đã có local storage hay chưa
+      const itemCart = carts.items.find(function (cart) {
+        return cart.id == productId;
+      });
+      if (itemCart) {
+        //Nếu có id item này rồi thì tăng
+        itemCart.quantity += parseInt(value);
+      } else {
+        //Nếu chưa thì đẩy mới
+        carts.items.push({ id: productId, quantity: value });
+      }
+      localStorage.setItem("cart", JSON.stringify(carts));
+    } else {
+      //Chưa có local storage
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({ items: [{ id: productId, quantity: value }] })
+      );
+    }
+    updateCartRight(); //Cập nhật cart right
+    updateTotalPrice(); //Cập nhật tổng giá
+    countCart(); //cập nhật rổng số lượng
+  });
+  $(".button_addcart ").on("click", function () {
     setTimeout(function () {
       //Mở popup thêm giỏ hàng
       $(".header_main .header_cart_icon").trigger("click");
     }, 50);
-    updateLocalStorage(productId, false); //Cập nhật local
-    updateCartRight(); //Cập nhật cart right
-    updateTotalPrice(); //Cập nhật tổng giá
-    countCart(); //cập nhật rổng số lượng
   });
 });
