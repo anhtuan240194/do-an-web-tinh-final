@@ -312,8 +312,13 @@
           </div>
           <div class="col-lg-2 col-md-3 header_right col-3">
             <img class="header_right_search" src="image/search.svg" alt="Search" />
-            <div class="header_account d-none d-lg-block d-md-block position-relative">
-              <img src="image/user.svg" alt="Đăng nhập" />
+            <div class="d-none d-lg-block d-md-block position-relative">
+              <div class="header_account">
+                <img src="image/user.svg" alt="Đăng nhập" />
+              </div>
+              <div class="header_account_logout d-none">
+                <img src="image/logout.svg" alt="Đăng xuất" />
+              </div>
             </div>
             <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcartRight"
               aria-controls="offcartRight">
@@ -373,6 +378,9 @@
             <div class="header_right">
               <div class="header_account position-relative d-inline">
                 <img src="image/user.svg" alt="Đăng nhập" />
+              </div>
+              <div class="header_account_logout position-relative d-inline d-none">
+                <img src="image/logout.svg" alt="Đăng xuất" />
               </div>
               <div class="header_cart d-flex">
                 <div class="header_cart_icon position-relative">
@@ -505,18 +513,17 @@
       </div>
     </div>
   </div>
-
-    <div class="breadcrums d-flex align-items-center mb-4">
+      <div class="breadcrums d-flex align-items-center mb-4">
         <div class="container">
-            <li>
-                <a href="/"><img src="image/home.svg" alt="Trang chủ" /> Trang chủ</a>
-                <span>/</span>
-            </li>
-            <li>
-                <a href="/" onclick="event.preventDefault()">Chính sách mua sỉ</a>
-            </li>
+          <li>
+            <a href="/"><img src="image/home.svg" alt="Trang chủ" /> Trang chủ</a>
+            <span>/</span>
+          </li>
+          <li>
+            <a href="/" onclick="event.preventDefault()">Chính sách mua sỉ</a>
+          </li>
         </div>
-    </div>
+      </div>
     <div class="main_page">
         <div class="container">
             <h1 class="title_page fw-bold mt-4">CHÍNH SÁCH MUA SỈ</h1>

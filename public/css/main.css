@@ -869,8 +869,11 @@ input[type="number"] {
   border: none;
   color: var(--main-color);
   font-size: 0.8rem;
-  width: 120px;
+  width: 100%;
   padding: 0 15px;
+}
+.account-item {
+    width: calc(50% - 5px);
 }
 .account-link:hover {
   border: none !important;

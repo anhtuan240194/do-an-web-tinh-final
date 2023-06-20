@@ -8,11 +8,10 @@ function enabledBuynowCartright(status, user) {
     $(".payment a").text("THANH TOÁN");
     $(".buttonpayment p").text("MUA NGAY");
     $(".buttonpayment span").text("Giao tận nơi hoặc nhận tại cửa hàng");
-    $(".header_account").html(`<img src="image/search.svg" alt="Đăng xuất">`);
     $(".user_register_mb").removeClass("d-block").addClass("d-none");
     $(".user_name_mb").removeClass("d-none").text(user);
-    $(".user_logout_mb").removeClass("d-none");
-    $(".user_login_mb").addClass("d-none");
+    $(".user_logout_mb, .header_account_logout").removeClass("d-none");
+    $(".user_login_mb, .header_account").addClass("d-none");
   }
 }
 
@@ -497,9 +496,11 @@ $("#login").on("submit", function (event) {
     }
   }
 });
+
 $(".box_account_success").on("click", function (event) {
   event.stopPropagation();
 });
+//Bấm ok khi đăng ký xong
 $(".succes_ok").on("click", function () {
   $(".box_account").trigger("click");
   $(".box_account_success").addClass("d-none");
@@ -510,8 +511,9 @@ $(".user_login_mb").on("click", function () {
   $(".header_account, .btn-close").trigger("click");
 });
 //event Logout
-$(".user_logout_mb").on("click", function () {
+$(".user_logout_mb, .header_account_logout").on("click", function () {
   localStorage.removeItem("statusLogin");
+  $(".header_account_logout").addClass("d-none");
   //Tải lại trang
   location.reload();
 });
