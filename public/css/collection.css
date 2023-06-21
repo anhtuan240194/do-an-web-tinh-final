@@ -133,7 +133,7 @@
   position: fixed;
   top: 0;
   left: -125%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3); 
   width: 100vw;
   height: 100vh;
 }

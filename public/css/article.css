@@ -52,7 +52,7 @@ li.item_article_related:not(:last-child) {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
+  right: 0; 
   top: 7px;
   border-radius: 50%;
   width: 5px;

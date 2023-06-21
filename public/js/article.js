@@ -21,7 +21,7 @@ async function updateHTMLBlog() {
   $(".list_article").append($blogs);
 
   //Click vào item related article => update local id
-  $(".item_article_related").on("click", function () {
+  $(".item_article_related").on("click", function () { 
     const blogId = $(this).data("blog-id");
     localStorage.setItem("blogId", blogId);
   });

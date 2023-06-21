@@ -358,7 +358,7 @@ async function countCart() {
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
   let total = dataCarts.reduce((total, cart) => {
     return total + cart.quantity;
-  }, 0);
+  }, 0); 
   return $(".header_cart_count").text(total);
 }
 

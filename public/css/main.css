@@ -869,7 +869,7 @@ input[type="number"] {
   border: none;
   color: var(--main-color);
   font-size: 0.8rem;
-  width: 100%;
+  width: 100%; 
   padding: 0 15px;
 }
 .account-item {

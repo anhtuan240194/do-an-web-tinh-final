@@ -270,7 +270,7 @@ $(document).ready(function () {
         "cart",
         JSON.stringify({ items: [{ id: productId, quantity: value }] })
       );
-    }
+    } 
     updateCartRight(); //Cập nhật cart right
     updateTotalPrice(); //Cập nhật tổng giá
     countCart(); //cập nhật rổng số lượng

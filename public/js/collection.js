@@ -122,7 +122,7 @@ $(".filter-color input").on("change", function () {
   if ($(this).is(":checked")) {
     //Nếu ô input được checked
     const color = $(this).data("filter-color");
-    //Render lại collection
+    //Render lại collection 
     $(".collections .row").empty();
     renderProductsCollection(0, 0, color);
   } else {

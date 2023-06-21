@@ -174,7 +174,7 @@ input.item_cart_number_quantity {
 }
 .close_order span {
   width: 120px;
-  height: 36px;
+  height: 36px; 
   cursor: pointer;
   line-height: 36px;
   background: var(--main-color);

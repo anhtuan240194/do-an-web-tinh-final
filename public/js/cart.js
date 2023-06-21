@@ -224,7 +224,7 @@ $(".payment").on("click", function () {
     $(".box_order_success").addClass("show_class"); //hiển thị box success
   }
 });
-
+ 
 //Event close order
 $(".close_order_success, .close_order span").on("click", function () {
   $(".box_order_success").removeClass("show_class");

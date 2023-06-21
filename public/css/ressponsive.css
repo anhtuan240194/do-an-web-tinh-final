@@ -195,7 +195,7 @@
     font-size: 0.75rem;
   }
   .buttonpayment {
-    width: 240px;
+    width: 240px; 
   }
   .button_addcart {
     width: calc(100% - 300px);

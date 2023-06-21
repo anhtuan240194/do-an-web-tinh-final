@@ -313,7 +313,7 @@
     align-items: center;
   }
   .main_product_image {
-    height: 455px;
+    height: 455px; 
   }
   .heart_sale_info span {
     display: none;
