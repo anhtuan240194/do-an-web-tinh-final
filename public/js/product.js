@@ -39,6 +39,11 @@ $(document).ready(function () {
     },
   });
 
+  //Event copy voucher
+  $(".voucher_copy").on("click", function(){
+    alert("Bạn đã sao chép mã thành công")
+  });
+
   //Input change
   $(".product_numberorder .number_quantity").on("input", function () {
     if ($(this).val() < 1) {

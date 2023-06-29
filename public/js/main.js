@@ -92,8 +92,8 @@ function diacritics(name) {
     .replace(/[ãảàáạăẵặằằẳâấầẩẫậ]/g, "a")
     .replace(/[ỷýỹỵỳ]/g, "y")
     .replace(/[uúùủũụưữựừứử]/g, "u")
-    .replace(/[ôốồỗộổóòõỏọớờỡởợ]/g, "o")
-    .replace(/[?,.,]/g, "")
+    .replace(/[ôốồỗộổóòõỏọớờỡởợơ]/g, "o")
+    .replace(/[?,.,"'&“”]/g, "")
     .replace(/ /g, "-");
 }
 
@@ -186,7 +186,9 @@ function updateLocalStorage(productId, status) {
 }
 
 //Click buy product item to set localStorage
-$(document).on("click", ".product_item_buy", function () {
+$(document).on("click", ".product_item_buy", function (e) {
+  e.stopPropagation();
+  console.log("hihi");
   const productId = $(this).parents(".product_item").data("productId");
   localStorage.setItem("productId", productId);
   setTimeout(function () {
@@ -217,22 +219,19 @@ async function updateCartRight() {
     const $cart = $(`
       <div class="cart_right_item mb-2 d-flex align-items-center" data-cart-id="${id}">
         <div class="cart_item_img">
-          <a href="product.html?${param}"><img src="${
-      dataProducts[id - 1].image[0]
-    }" alt="${dataProducts[id - 1].name}" /></a>
+          <a href="product.html?${param}"><img src="${dataProducts[id - 1].image[0]
+      }" alt="${dataProducts[id - 1].name}" /></a>
         </div>
         <div class="cart_item_info ps-2">
-        <a href="product.html?${param}" class="cart_item_name mb-2 d-block">${
-      dataProducts[id - 1].name
-    }
+        <a href="product.html?${param}" class="cart_item_name mb-2 d-block">${dataProducts[id - 1].name
+      }
         </a>
         <div class="cart_item_action d-flex justify-content-between">
           <div class="cart_item_quantity">
             <span class="d-block">Số lượng</span>
             <button class="quantity-reduce" onclick ="changeQuantity(this)">-</button>
-            <input class="cart_item_number_quantity text-center" type="number" value="${
-              cart.quantity
-            }" />
+            <input class="cart_item_number_quantity text-center" type="number" value="${cart.quantity
+      }" />
             <button class="quantity-pluss" onclick ="changeQuantity(this)">+</button>
           </div>
           <div class="cart_item_price p-2">
@@ -357,8 +356,8 @@ async function updateTotalPrice() {
 async function countCart() {
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
   let total = dataCarts.reduce((total, cart) => {
-    return total + cart.quantity;
-  }, 0); 
+    return total + parseInt(cart.quantity);
+  }, 0);
   return $(".header_cart_count").text(total);
 }
 

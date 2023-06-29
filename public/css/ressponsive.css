@@ -30,12 +30,7 @@
   }
 }
 @media (max-width: 768px) {
-  .swiper-button-next:after {
-    font-size: 20px;
-  }
-  .swiper-button-prev:after {
-    font-size: 20px;
-  }
+
   .product_image_thumb {
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
@@ -158,6 +153,9 @@
   .cart_item_infor {
     width: calc(100% - 165px);
   }
+  .cart_item_price {
+    font-size: 0.8rem;
+  }
 }
 @media (max-width: 325px) {
   .logo img {
@@ -178,6 +176,9 @@
   }
   .cart_item_img {
     display: none;
+  }
+  .cart_item_infor {
+    width: calc(100% - 75px);
   }
 }
 @media (max-width: 1399px) {

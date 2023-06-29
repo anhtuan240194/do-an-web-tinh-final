@@ -259,5 +259,24 @@ $(document).ready(function () {
       },
     },
   });
+
+  //Time flash sale
+  //Hàm set thời gian đếm ngược
+  function setTimeFlashSale(timeReMaining) {
+    const hours = Math.floor(timeReMaining / 3600);
+    const minutes = Math.floor((timeReMaining - hours * 3600)/60);
+    const seconds = Math.floor(timeReMaining - hours * 3600 - minutes * 60);
+    $(".countdown_hours p").text(hours);
+    $(".countdown_minutes p").text(minutes);
+    $(".countdown_seconds p").text(seconds);
+  };
+
+  const deadLine = new Date("2023/07/02 12:00:00");
+  const newDate = new Date(); 
+  let timeReMaining = Math.floor((deadLine - newDate) / 1000);
+  setInterval(function () {
+    setTimeFlashSale(timeReMaining);
+    timeReMaining--;
+  }, 1000);
 });
  
