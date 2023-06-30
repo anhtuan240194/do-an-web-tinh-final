@@ -27,12 +27,12 @@ $(document).ready(function () {
     });
   });
 
-  //Sự kiện click vào giỏ hàng
+  //Sự kiện click vào giỏ hàng của header search
   $(".header_box_search .header_cart_icon").on("click", function () {
     $(".header_main .header_cart_icon").trigger("click");
   });
 
-  //Show menu
+  //Show menu cấp 2 trên mobile
   $(".dropdown_nav_lv0").on("click", function () {
     $(this).siblings(".nav_list_lv0").toggleClass("d-none");
     $(this).children("span").toggleClass("d-none");
@@ -102,7 +102,7 @@ function heartSold(item) {
   return Math.floor((item.sold / item.quantity) * 100) + "%";
 }
 
-//Show product item
+//Show product item. Nhận 2 tham số item và module - collection
 function showProduct(item, module) {
   const width = heartSold(item);
   const urlParam = diacritics(item.name);
@@ -152,7 +152,7 @@ function showProduct(item, module) {
     `);
 }
 
-//Update module product
+//Update product cho các danh mục sp tương ứng
 async function updateProducts(collection, module) {
   const data = await getProducts();
   data.forEach(function (dataItem) {
@@ -162,12 +162,13 @@ async function updateProducts(collection, module) {
   });
 }
 
+//Update Local storage mỗi khi remove, add, buy now product
 function updateLocalStorage(productId, status) {
   const cart = JSON.parse(localStorage.getItem("cart")) || {
-    items: [],
+    items: []
   };
   const itemCart = cart.items.find(function (item) {
-    return item.id == productId;
+    return item.id == productId; //Check trong local đã tồn tại sp đó hay chưa
   });
   if (status) {
     //Giảm
@@ -188,7 +189,6 @@ function updateLocalStorage(productId, status) {
 //Click buy product item to set localStorage
 $(document).on("click", ".product_item_buy", function (e) {
   e.stopPropagation();
-  console.log("hihi");
   const productId = $(this).parents(".product_item").data("productId");
   localStorage.setItem("productId", productId);
   setTimeout(function () {
@@ -201,12 +201,13 @@ $(document).on("click", ".product_item_buy", function (e) {
   countCart();
 });
 
+//Event click vào ảnh sp thay vì nút buynow
 $(document).on("click", ".product_item_img", function () {
   const productId = $(this).parents(".product_item").data("product-id");
   localStorage.setItem("productId", productId);
 });
 
-//Update cart right
+//Render item cart right
 async function updateCartRight() {
   const dataProducts = await getProducts();
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items || [];
@@ -250,7 +251,7 @@ async function updateCartRight() {
 
   //Event click item cart right
   $(".cart_item_name, .cart_item_img").on("click", function () {
-    const nextId = $(this).closest(".cart_right_item").data("cart-id");
+    const nextId = $(this).closest(".cart_right_item").data("cart-id"); //Lấy id product
     localStorage.setItem("productId", JSON.stringify(nextId));
   });
 
@@ -261,7 +262,7 @@ async function updateCartRight() {
     }
     const value = parseInt($(this).val());
     const productId = $(this).parents(".cart_right_item").data("cart-id");
-    const query = $(this);
+    const query = $(this); //Đối tượng jquery của item có ô input được thay đổi số lượng
     const dataCarts = JSON.parse(localStorage.getItem("cart"));
     const cart = dataCarts.items.find(function (cart) {
       return cart.id == productId;
@@ -275,6 +276,7 @@ async function updateCartRight() {
     countCart();
   });
 
+  //Check số lượng item trong cart right
   if ($(".cart_right_list").text() == "") {
     $(".cart_right_list").append(`
         <span class="d-block no_cart_slogan">Không có sản phẩm nào</span>
@@ -288,10 +290,12 @@ function changeQuantity(event) {
   const $quantity = $(event).siblings(".cart_item_number_quantity");
   const productId = $(event).parents(".cart_right_item").data("cartId");
   const currentQuantity = parseInt($quantity.val());
+  //Nếu click vào nút có class là quantity-pluss
   if ($(event).attr("class").includes("quantity-pluss")) {
     $quantity.val(currentQuantity + 1);
     updateLocalStorage(productId, false);
   } else {
+    //Nếu click vào nút có class là quantity-reduce
     $quantity.val(currentQuantity - 1);
     if ($quantity.val() < 1) {
       $quantity.val(1);
@@ -327,7 +331,7 @@ $(".cart_right_list").on("click", ".cart_remove", function () {
 });
 
 //update price item cart right
-
+//query là đối tượng jquery của item cart right có id tương ứng
 async function updatePriceItem(id, value, query) {
   const data = await getProducts();
   const price = data[id - 1].price;
@@ -339,7 +343,7 @@ async function updatePriceItem(id, value, query) {
     .text(totalPriceItem);
 }
 
-// price total cart right
+//price total cart right
 async function updateTotalPrice() {
   const dataProducts = await getProducts();
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
@@ -353,6 +357,7 @@ async function updateTotalPrice() {
   return total;
 }
 
+//Tính số lượng sp trên giỏ hàng
 async function countCart() {
   const dataCarts = JSON.parse(localStorage.getItem("cart")).items;
   let total = dataCarts.reduce((total, cart) => {
@@ -368,7 +373,7 @@ $(".header_account").on("click", function (event) {
   });
 });
 
-//Ngăn chặn lan truyền sự kiện click vào box-main
+//Ngăn chặn lan truyền sự kiện click vào box-main account
 $(".box_account_main").on("click", function (event) {
   event.stopPropagation();
 });
