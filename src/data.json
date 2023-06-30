@@ -8,7 +8,7 @@
       "price": 250000,
       "oldprice": 300000,
       "quantity": 175,
-      "sold": 200,
+      "sold": 135,
       "variant": { "color": ["Trắng", "Xanh", "Đen"], "size": ["S", "M", "L"] },
       "collections": ["Áo", "Quần", "Flash sale"],
       "image": [
