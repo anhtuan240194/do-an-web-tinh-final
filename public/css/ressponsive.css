@@ -142,6 +142,9 @@
   .order_succsess {
     width: 90vw;
   }
+  #list-example {
+    display:none !important;
+  }
 }
 @media (max-width: 376px) {
   .heart_sale_info span {

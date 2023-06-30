@@ -28,7 +28,7 @@ $(document).ready(function () {
       </a>
       <div class="blog_info">
         <h3 class="blog_item_title" data-blog-id="${blog.id}">
-        <a href="/article?${articleParam}">${blog.title}</a>
+        <a href="/article.html?${articleParam}">${blog.title}</a>
         </h3>
         <span class="blog_item_author">Đăng bởi: ${blog.author}</span>
         <p class="blog_item_summary">
