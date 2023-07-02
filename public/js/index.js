@@ -271,12 +271,16 @@ $(document).ready(function () {
     $(".countdown_seconds p").text(seconds);
   };
 
-  const deadLine = new Date("2023/07/02 12:00:00");
+  const deadLine = new Date("2023/07/05 12:00:00");
   const newDate = new Date(); 
   let timeReMaining = Math.floor((deadLine - newDate) / 1000);
-  setInterval(function () {
-    setTimeFlashSale(timeReMaining);
-    timeReMaining--;
-  }, 1000);
+  if (timeReMaining > 0) {
+    setInterval(function () {
+      setTimeFlashSale(timeReMaining);
+      timeReMaining--;
+    }, 1000);
+  } else {
+    setTimeFlashSale(0);
+  }
 });
  
